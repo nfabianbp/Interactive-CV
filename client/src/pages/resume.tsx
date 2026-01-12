@@ -25,14 +25,14 @@ const staggerContainer = {
 };
 
 const profileData = {
-  name: "Carlos Mendoza",
-  title: "Desarrollador Full Stack",
-  location: "Ciudad de México, México",
-  email: "carlos.mendoza@email.com",
-  phone: "+52 55 1234 5678",
-  linkedin: "linkedin.com/in/carlosmendoza",
-  github: "github.com/carlosmendoza",
-  bio: "Desarrollador apasionado con más de 5 años de experiencia creando aplicaciones web modernas y escalables. Especializado en React, Node.js y arquitecturas cloud. Me encanta resolver problemas complejos y aprender nuevas tecnologías."
+  name: "Nestor Fabian Bernal",
+  title: "Líder Comercial - Consultor Para La Industria",
+  location: "Bogotá D.C, Colombia",
+  email: "nfabianbp@hotmail.com",
+  phone: "+57 316 049 3179",
+  linkedin: "linkedin.com/in/nestorbernal",
+  github: "",
+  bio: "Líder comercial con amplia experiencia en consultoría para la industria. Especializado en desarrollo de negocios, estrategias comerciales y gestión de relaciones con clientes. Apasionado por generar valor y construir alianzas estratégicas."
 };
 
 const experiences = [
@@ -148,7 +148,7 @@ export default function Resume() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-4xl md:text-5xl font-bold shadow-2xl">
-                CM
+                NB
               </div>
               <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-400 rounded-full border-4 border-white" />
             </motion.div>

@@ -153,7 +153,7 @@ export default function Resume() {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-4xl md:text-5xl font-bold shadow-2xl">
+              <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-[#142157] flex items-center justify-center text-white text-4xl md:text-5xl font-bold shadow-2xl">
                 NB
               </div>
               <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-400 rounded-full border-4 border-white" />
@@ -183,7 +183,7 @@ export default function Resume() {
               </div>
 
               <div className="flex flex-wrap justify-center md:justify-start gap-3">
-                <Button className="gap-2 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700" data-testid="button-download-cv">
+                <Button className="gap-2 bg-[#142157] hover:bg-[#1e3a8a]" data-testid="button-download-cv">
                   <Download className="w-4 h-4" />
                   Descargar CV
                 </Button>
@@ -244,7 +244,7 @@ export default function Resume() {
               >
                 <div className="glass rounded-2xl p-6 card-hover">
                   <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                    <User className="w-5 h-5 text-indigo-500" />
+                    <User className="w-5 h-5 text-[#142157]" />
                     Perfil Profesional
                   </h2>
                   <p className="text-muted-foreground leading-relaxed whitespace-pre-line text-justify" data-testid="text-bio">
@@ -254,12 +254,12 @@ export default function Resume() {
 
                 <div className="glass rounded-2xl p-6 card-hover">
                   <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                    <GraduationCap className="w-5 h-5 text-indigo-500" />
+                    <GraduationCap className="w-5 h-5 text-[#142157]" />
                     Educación
                   </h2>
                   <div className="space-y-4">
                     {education.map((edu, index) => (
-                      <div key={index} className="border-l-2 border-indigo-500 pl-4">
+                      <div key={index} className="border-l-2 border-[#142157] pl-4">
                         <h3 className="font-medium" data-testid={`text-degree-${index}`}>{edu.degree}</h3>
                         <p className="text-sm text-muted-foreground">{edu.school}</p>
                         <p className="text-xs text-muted-foreground flex items-center gap-1 mt-1">
@@ -271,14 +271,14 @@ export default function Resume() {
                   </div>
 
                   <h2 className="text-xl font-semibold mb-4 mt-14 flex items-center gap-2">
-                    <Languages className="w-5 h-5 text-indigo-500" />
+                    <Languages className="w-5 h-5 text-[#142157]" />
                     Idiomas
                   </h2>
                   <div className="space-y-2">
-                    <div className="border-l-2 border-indigo-500 pl-4">
+                    <div className="border-l-2 border-[#142157] pl-4">
                       <h3 className="font-medium" data-testid="text-language-english">Inglés B2 - Intermedio</h3>
                     </div>
-                    <div className="border-l-2 border-indigo-500 pl-4">
+                    <div className="border-l-2 border-[#142157] pl-4">
                       <h3 className="font-medium" data-testid="text-language-spanish">Español - Nativo</h3>
                     </div>
                   </div>
@@ -286,7 +286,7 @@ export default function Resume() {
 
                 <div className="glass rounded-2xl p-6 card-hover md:col-span-2">
                   <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                    <Award className="w-5 h-5 text-indigo-500" />
+                    <Award className="w-5 h-5 text-[#142157]" />
                     Certificaciones
                   </h2>
                   <div className="flex flex-wrap gap-3">
@@ -294,7 +294,7 @@ export default function Resume() {
                       <Badge 
                         key={index} 
                         variant="secondary" 
-                        className="px-4 py-2 text-sm bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-100"
+                        className="px-4 py-2 text-sm bg-gradient-to-r from-blue-50 to-slate-50 border border-[#142157]/20"
                         data-testid={`badge-cert-${index}`}
                       >
                         {cert}
@@ -323,7 +323,7 @@ export default function Resume() {
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                       <div>
                         <h3 className="text-xl font-semibold text-foreground whitespace-pre-line">{exp.role}</h3>
-                        <p className="text-indigo-600 font-medium">{exp.company}</p>
+                        <p className="text-[#142157] font-medium">{exp.company}</p>
                       </div>
                       <Badge variant="outline" className="w-fit flex items-center gap-1.5">
                         <Calendar className="w-3.5 h-3.5" />
@@ -335,7 +335,7 @@ export default function Resume() {
                       {exp.technologies.map((tech, techIndex) => (
                         <Badge 
                           key={techIndex} 
-                          className="bg-indigo-500/10 text-indigo-600 hover:bg-indigo-500/20"
+                          className="bg-[#142157]/10 text-[#142157] hover:bg-[#142157]/20"
                         >
                           {tech}
                         </Badge>
@@ -361,7 +361,7 @@ export default function Resume() {
                         variant={skillFilter === filter ? "default" : "outline"}
                         size="sm"
                         onClick={() => setSkillFilter(filter)}
-                        className={skillFilter === filter ? "bg-gradient-to-r from-indigo-500 to-purple-600" : ""}
+                        className={skillFilter === filter ? "bg-[#142157]" : ""}
                         data-testid={`button-filter-${filter}`}
                       >
                         {filter === "all" ? "Todas" : "Software"}
@@ -466,7 +466,7 @@ export default function Resume() {
                     transition={{ delay: 0.1 }}
                   >
                     <div className="flex items-center gap-3 mb-2">
-                      <div className="p-2 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600">
+                      <div className="p-2 rounded-lg bg-[#142157]">
                         <TrendingUp className="w-5 h-5 text-white" />
                       </div>
                       <span className="text-sm text-muted-foreground">Años Exp.</span>
@@ -528,13 +528,13 @@ export default function Resume() {
                     transition={{ delay: 0.3 }}
                   >
                     <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                      <Briefcase className="w-5 h-5 text-indigo-500" />
+                      <Briefcase className="w-5 h-5 text-[#142157]" />
                       Trayectoria Profesional
                     </h3>
                     <div className="space-y-4">
                       {experiences.map((exp, index) => (
                         <div key={exp.id} className="flex items-start gap-3">
-                          <div className="w-3 h-3 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 mt-1.5 flex-shrink-0" />
+                          <div className="w-3 h-3 rounded-full bg-[#142157] mt-1.5 flex-shrink-0" />
                           <div className="flex-1">
                             <div className="flex justify-between items-start flex-wrap gap-2">
                               <p className="font-medium text-sm">{exp.company}</p>
@@ -554,7 +554,7 @@ export default function Resume() {
                     transition={{ delay: 0.35 }}
                   >
                     <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                      <Code className="w-5 h-5 text-indigo-500" />
+                      <Code className="w-5 h-5 text-[#142157]" />
                       Dominio de Herramientas
                     </h3>
                     <div className="space-y-3">
@@ -586,15 +586,15 @@ export default function Resume() {
                     transition={{ delay: 0.4 }}
                   >
                     <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                      <GraduationCap className="w-5 h-5 text-indigo-500" />
+                      <GraduationCap className="w-5 h-5 text-[#142157]" />
                       Formación
                     </h3>
                     <div className="space-y-3">
                       {education.map((edu, index) => (
-                        <div key={index} className="border-l-2 border-indigo-500 pl-3">
+                        <div key={index} className="border-l-2 border-[#142157] pl-3">
                           <p className="font-medium text-sm">{edu.degree}</p>
                           <p className="text-xs text-muted-foreground">{edu.school}</p>
-                          <p className="text-xs text-indigo-600">{edu.year}</p>
+                          <p className="text-xs text-[#142157]">{edu.year}</p>
                         </div>
                       ))}
                     </div>
@@ -607,13 +607,13 @@ export default function Resume() {
                     transition={{ delay: 0.45 }}
                   >
                     <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                      <Award className="w-5 h-5 text-indigo-500" />
+                      <Award className="w-5 h-5 text-[#142157]" />
                       Certificaciones
                     </h3>
                     <div className="space-y-2">
                       {certifications.map((cert, index) => (
                         <div key={index} className="flex items-center gap-2">
-                          <div className="w-2 h-2 rounded-full bg-indigo-500" />
+                          <div className="w-2 h-2 rounded-full bg-[#142157]" />
                           <p className="text-sm">{cert}</p>
                         </div>
                       ))}
@@ -627,14 +627,14 @@ export default function Resume() {
                     transition={{ delay: 0.5 }}
                   >
                     <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                      <Languages className="w-5 h-5 text-indigo-500" />
+                      <Languages className="w-5 h-5 text-[#142157]" />
                       Idiomas
                     </h3>
                     <div className="space-y-3">
                       <div>
                         <div className="flex justify-between text-sm mb-1">
                           <span>Español</span>
-                          <span className="text-indigo-600">Nativo</span>
+                          <span className="text-[#142157]">Nativo</span>
                         </div>
                         <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
                           <motion.div
@@ -648,7 +648,7 @@ export default function Resume() {
                       <div>
                         <div className="flex justify-between text-sm mb-1">
                           <span>Inglés</span>
-                          <span className="text-indigo-600">B2 - Intermedio</span>
+                          <span className="text-[#142157]">B2 - Intermedio</span>
                         </div>
                         <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
                           <motion.div
@@ -670,7 +670,7 @@ export default function Resume() {
                   transition={{ delay: 0.55 }}
                 >
                   <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                    <FolderOpen className="w-5 h-5 text-indigo-500" />
+                    <FolderOpen className="w-5 h-5 text-[#142157]" />
                     Proyectos Destacados
                   </h3>
                   <div className="grid md:grid-cols-3 gap-4">
@@ -697,14 +697,14 @@ export default function Resume() {
                   transition={{ delay: 0.6 }}
                 >
                   <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                    <Target className="w-5 h-5 text-indigo-500" />
+                    <Target className="w-5 h-5 text-[#142157]" />
                     Industrias de Experiencia
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {["Oil & Gas", "Energía", "Petroquímica", "Alimentos", "Metalmecánica", "Construcción Naval", "Hidroeléctrica"].map((industry, index) => (
                       <Badge 
                         key={index}
-                        className="px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white"
+                        className="px-4 py-2 bg-[#142157] text-white"
                       >
                         {industry}
                       </Badge>

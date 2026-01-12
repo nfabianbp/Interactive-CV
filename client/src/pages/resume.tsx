@@ -32,7 +32,7 @@ const profileData = {
   phone: "+57 316 049 3179",
   linkedin: "linkedin.com/in/nestorbernal",
   github: "",
-  bio: "Líder comercial con amplia experiencia en consultoría para la industria. Especializado en desarrollo de negocios, estrategias comerciales y gestión de relaciones con clientes. Apasionado por generar valor y construir alianzas estratégicas."
+  bio: "Ingeniero Mecánico especialista en Gestión de Proyectos y más de 13 años de experiencia en ventas consultivas, liderazgo comercial y desarrollo estratégico de negocios para soluciones técnicas, tecnología y proyectos industriales. Amplia trayectoria en las industrias petroquímica, Oil & Gas, energía, metalmecánica y alimentos, gestionando portafolios comerciales y proyectos de alto impacto.\n\nProfesional con sólidas habilidades de liderazgo, capaz de dirigir equipos comerciales y técnicos multidisciplinarios, definir e implementar estrategias comerciales y empresariales, y liderar procesos de preventa, negociación y cierre de contratos complejos. Experiencia en gestión de cuentas clave, expansión de mercados, análisis financiero-comercial y alineación de objetivos comerciales con la estrategia corporativa.\n\nOrientado a resultados, rentabilidad y crecimiento sostenible, con fuerte enfoque en la toma de decisiones estratégicas, generación de valor para el cliente y construcción de relaciones comerciales de largo plazo en entornos industriales altamente competitivos."
 };
 
 const experiences = [
@@ -237,7 +237,7 @@ export default function Resume() {
                     <User className="w-5 h-5 text-indigo-500" />
                     Perfil Profesional
                   </h2>
-                  <p className="text-muted-foreground leading-relaxed" data-testid="text-bio">
+                  <p className="text-muted-foreground leading-relaxed whitespace-pre-line" data-testid="text-bio">
                     {profileData.bio}
                   </p>
                 </div>

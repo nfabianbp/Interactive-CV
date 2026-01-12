@@ -25,7 +25,7 @@ const staggerContainer = {
 };
 
 const profileData = {
-  name: "Nestor Fabian Bernal",
+  name: "Néstor Fabián Bernal",
   title: "Líder Comercial - Consultor Para La Industria",
   location: "Bogotá D.C, Colombia",
   email: "nfabianbp@hotmail.com",

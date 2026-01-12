@@ -74,26 +74,26 @@ const skills = [
 const projects = [
   {
     id: 1,
-    name: "E-Commerce Platform",
-    description: "Plataforma de comercio electrónico con procesamiento de pagos, gestión de inventario y panel de administración.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
-    technologies: ["Next.js", "Stripe", "Prisma", "PostgreSQL"],
+    name: "Refrigeración Generación de Energía",
+    description: "Reemplazo equipos de intercambio de calor para refrigeración turbinas de generación de energía de hidroeléctrica Amoya CO - ISAGEN.",
+    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=300&fit=crop",
+    technologies: ["Energía", "Intercambio de Calor", "Hidroeléctrica"],
     link: "#"
   },
   {
     id: 2,
-    name: "Task Management App",
-    description: "Aplicación de gestión de tareas con colaboración en tiempo real, tableros Kanban y notificaciones.",
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop",
-    technologies: ["React", "Socket.io", "Redis", "Node.js"],
+    name: "OPTIPARTNER® Secador",
+    description: "Implementación primera solución digital de optimización de proceso de secado, para secador de emulsiones en planta de resinas MEXICHEM CO.",
+    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop",
+    technologies: ["Solución Digital", "Optimización", "Procesos Industriales"],
     link: "#"
   },
   {
     id: 3,
-    name: "Analytics Dashboard",
-    description: "Dashboard de análisis de datos con visualizaciones interactivas y reportes automatizados.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
-    technologies: ["React", "D3.js", "Python", "FastAPI"],
+    name: "Soportería Modular para Tubería",
+    description: "Venta de primer proyecto de soportería modular para tubería de proceso en construcción de buque Oceanográfico desarrollado por COTECMAR CO.",
+    image: "https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=400&h=300&fit=crop",
+    technologies: ["Construcción Naval", "Soportería Modular", "Oil & Gas"],
     link: "#"
   }
 ];

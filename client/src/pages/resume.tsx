@@ -54,11 +54,11 @@ const experiences = [
   },
   {
     id: 3,
-    company: "Digital Agency",
-    role: "Frontend Developer",
-    period: "2018 - 2020",
-    description: "Creé interfaces de usuario interactivas para clientes corporativos. Mejoré la accesibilidad web y optimicé el rendimiento de múltiples sitios.",
-    technologies: ["Vue.js", "JavaScript", "SASS", "Webpack"]
+    company: "PFERD PANAMERICANA",
+    role: "Representante de Ventas Industriales\n(Países Región Andina)",
+    period: "2016 - 2018",
+    description: "Lideré el desarrollo y expansión de mercado en la región, incrementando la cobertura comercial y el posicionamiento de la marca mediante la gestión estratégica de distribuidores, definición de planes de sell in y sell out, y ejecución de acciones comerciales alineadas con los objetivos regionales.\n\nImpulsé el crecimiento de ventas a través del trabajo directo con la fuerza de ventas y usuarios finales, realizando entrenamientos, demostraciones técnicas y acompañamiento en campo, fortaleciendo la propuesta de valor, la adopción de productos y la fidelización de clientes.",
+    technologies: ["Desarrollo de Mercado", "Gestión de Distribuidores", "Ventas Industriales", "Capacitación Técnica"]
   }
 ];
 

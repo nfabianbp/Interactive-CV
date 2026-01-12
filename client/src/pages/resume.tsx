@@ -119,7 +119,7 @@ const education = [
 ];
 
 const certifications = [
-  "Entrenamiento Avanzado en Ventas SSS - Desarrollo Sistemático de Cuentas (México, 2019)",
+  "Entrenamiento Avanzado en Ventas SSS (México, 2019)",
   "Juice - Value Based Sales Training (México, 2014)"
 ];
 

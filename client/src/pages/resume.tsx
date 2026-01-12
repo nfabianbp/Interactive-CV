@@ -264,7 +264,7 @@ export default function Resume() {
                     ))}
                   </div>
 
-                  <h2 className="text-xl font-semibold mb-4 mt-6 flex items-center gap-2">
+                  <h2 className="text-xl font-semibold mb-4 mt-10 flex items-center gap-2">
                     <Languages className="w-5 h-5 text-indigo-500" />
                     Idiomas
                   </h2>

@@ -237,7 +237,7 @@ export default function Resume() {
                     <User className="w-5 h-5 text-indigo-500" />
                     Perfil Profesional
                   </h2>
-                  <p className="text-muted-foreground leading-relaxed whitespace-pre-line" data-testid="text-bio">
+                  <p className="text-muted-foreground leading-relaxed whitespace-pre-line text-justify" data-testid="text-bio">
                     {profileData.bio}
                   </p>
                 </div>

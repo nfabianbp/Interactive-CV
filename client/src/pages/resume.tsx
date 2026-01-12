@@ -119,9 +119,8 @@ const education = [
 ];
 
 const certifications = [
-  "AWS Solutions Architect - Associate",
-  "Google Cloud Professional Developer",
-  "Meta React Developer Certificate"
+  "Entrenamiento Avanzado en Ventas SSS - Desarrollo Sistemático de Cuentas (México, 2019)",
+  "Juice - Value Based Sales Training (México, 2014)"
 ];
 
 export default function Resume() {

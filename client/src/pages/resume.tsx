@@ -6,7 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   User, Briefcase, Code, FolderOpen, Mail, Phone, MapPin, 
   Linkedin, Github, ExternalLink, GraduationCap, Award,
-  Calendar, ChevronRight, Download, Send, Languages
+  Calendar, ChevronRight, Download, Send, Languages, LayoutDashboard,
+  TrendingUp, Target, Globe, Building2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -223,6 +224,10 @@ export default function Resume() {
               <TabsTrigger value="projects" className="flex-1 gap-2 py-3 data-[state=active]:bg-white data-[state=active]:shadow-md" data-testid="tab-projects">
                 <FolderOpen className="w-4 h-4" />
                 <span className="hidden sm:inline">Proyectos</span>
+              </TabsTrigger>
+              <TabsTrigger value="dashboard" className="flex-1 gap-2 py-3 data-[state=active]:bg-white data-[state=active]:shadow-md" data-testid="tab-dashboard">
+                <LayoutDashboard className="w-4 h-4" />
+                <span className="hidden sm:inline">Dashboard</span>
               </TabsTrigger>
             </TabsList>
           </motion.div>
@@ -442,6 +447,270 @@ export default function Resume() {
                     </div>
                   </motion.div>
                 ))}
+              </motion.div>
+            </TabsContent>
+
+            <TabsContent value="dashboard" className="mt-0">
+              <motion.div
+                key="dashboard"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                className="space-y-6"
+              >
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <motion.div 
+                    className="glass rounded-2xl p-5 card-hover"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="p-2 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600">
+                        <TrendingUp className="w-5 h-5 text-white" />
+                      </div>
+                      <span className="text-sm text-muted-foreground">Años Exp.</span>
+                    </div>
+                    <p className="text-3xl font-bold gradient-text">13+</p>
+                  </motion.div>
+
+                  <motion.div 
+                    className="glass rounded-2xl p-5 card-hover"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.15 }}
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="p-2 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600">
+                        <Building2 className="w-5 h-5 text-white" />
+                      </div>
+                      <span className="text-sm text-muted-foreground">Empresas</span>
+                    </div>
+                    <p className="text-3xl font-bold text-green-600">{experiences.length}</p>
+                  </motion.div>
+
+                  <motion.div 
+                    className="glass rounded-2xl p-5 card-hover"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="p-2 rounded-lg bg-gradient-to-br from-orange-500 to-amber-600">
+                        <Target className="w-5 h-5 text-white" />
+                      </div>
+                      <span className="text-sm text-muted-foreground">Proyectos</span>
+                    </div>
+                    <p className="text-3xl font-bold text-orange-600">{projects.length}</p>
+                  </motion.div>
+
+                  <motion.div 
+                    className="glass rounded-2xl p-5 card-hover"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.25 }}
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="p-2 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-600">
+                        <Globe className="w-5 h-5 text-white" />
+                      </div>
+                      <span className="text-sm text-muted-foreground">Países</span>
+                    </div>
+                    <p className="text-3xl font-bold text-blue-600">4</p>
+                  </motion.div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <motion.div 
+                    className="glass rounded-2xl p-6"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                      <Briefcase className="w-5 h-5 text-indigo-500" />
+                      Trayectoria Profesional
+                    </h3>
+                    <div className="space-y-4">
+                      {experiences.map((exp, index) => (
+                        <div key={exp.id} className="flex items-start gap-3">
+                          <div className="w-3 h-3 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 mt-1.5 flex-shrink-0" />
+                          <div className="flex-1">
+                            <div className="flex justify-between items-start flex-wrap gap-2">
+                              <p className="font-medium text-sm">{exp.company}</p>
+                              <Badge variant="outline" className="text-xs">{exp.period}</Badge>
+                            </div>
+                            <p className="text-xs text-muted-foreground mt-0.5">{exp.role.split('\n')[0]}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+
+                  <motion.div 
+                    className="glass rounded-2xl p-6"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.35 }}
+                  >
+                    <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                      <Code className="w-5 h-5 text-indigo-500" />
+                      Dominio de Herramientas
+                    </h3>
+                    <div className="space-y-3">
+                      {skills.map((skill, index) => (
+                        <div key={skill.name}>
+                          <div className="flex justify-between text-sm mb-1">
+                            <span>{skill.name}</span>
+                            <span className="text-muted-foreground">{skill.level}%</span>
+                          </div>
+                          <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                            <motion.div
+                              className="h-full skill-bar rounded-full"
+                              initial={{ width: 0 }}
+                              animate={{ width: `${skill.level}%` }}
+                              transition={{ duration: 0.8, delay: 0.4 + index * 0.05 }}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-6">
+                  <motion.div 
+                    className="glass rounded-2xl p-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                  >
+                    <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                      <GraduationCap className="w-5 h-5 text-indigo-500" />
+                      Formación
+                    </h3>
+                    <div className="space-y-3">
+                      {education.map((edu, index) => (
+                        <div key={index} className="border-l-2 border-indigo-500 pl-3">
+                          <p className="font-medium text-sm">{edu.degree}</p>
+                          <p className="text-xs text-muted-foreground">{edu.school}</p>
+                          <p className="text-xs text-indigo-600">{edu.year}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+
+                  <motion.div 
+                    className="glass rounded-2xl p-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.45 }}
+                  >
+                    <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                      <Award className="w-5 h-5 text-indigo-500" />
+                      Certificaciones
+                    </h3>
+                    <div className="space-y-2">
+                      {certifications.map((cert, index) => (
+                        <div key={index} className="flex items-center gap-2">
+                          <div className="w-2 h-2 rounded-full bg-indigo-500" />
+                          <p className="text-sm">{cert}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+
+                  <motion.div 
+                    className="glass rounded-2xl p-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                  >
+                    <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                      <Languages className="w-5 h-5 text-indigo-500" />
+                      Idiomas
+                    </h3>
+                    <div className="space-y-3">
+                      <div>
+                        <div className="flex justify-between text-sm mb-1">
+                          <span>Español</span>
+                          <span className="text-indigo-600">Nativo</span>
+                        </div>
+                        <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                          <motion.div
+                            className="h-full skill-bar rounded-full"
+                            initial={{ width: 0 }}
+                            animate={{ width: "100%" }}
+                            transition={{ duration: 0.8, delay: 0.55 }}
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between text-sm mb-1">
+                          <span>Inglés</span>
+                          <span className="text-indigo-600">B2 - Intermedio</span>
+                        </div>
+                        <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                          <motion.div
+                            className="h-full skill-bar rounded-full"
+                            initial={{ width: 0 }}
+                            animate={{ width: "70%" }}
+                            transition={{ duration: 0.8, delay: 0.6 }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+
+                <motion.div 
+                  className="glass rounded-2xl p-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.55 }}
+                >
+                  <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                    <FolderOpen className="w-5 h-5 text-indigo-500" />
+                    Proyectos Destacados
+                  </h3>
+                  <div className="grid md:grid-cols-3 gap-4">
+                    {projects.map((project, index) => (
+                      <div key={project.id} className="flex items-start gap-3 p-3 rounded-xl bg-white/50">
+                        <img 
+                          src={project.image} 
+                          alt={project.name}
+                          className="w-16 h-16 rounded-lg object-cover flex-shrink-0"
+                        />
+                        <div>
+                          <p className="font-medium text-sm">{project.name}</p>
+                          <p className="text-xs text-muted-foreground line-clamp-2">{project.description}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                <motion.div 
+                  className="glass rounded-2xl p-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                >
+                  <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                    <Target className="w-5 h-5 text-indigo-500" />
+                    Industrias de Experiencia
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {["Oil & Gas", "Energía", "Petroquímica", "Alimentos", "Metalmecánica", "Construcción Naval", "Hidroeléctrica"].map((industry, index) => (
+                      <Badge 
+                        key={index}
+                        className="px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white"
+                      >
+                        {industry}
+                      </Badge>
+                    ))}
+                  </div>
+                </motion.div>
               </motion.div>
             </TabsContent>
           </AnimatePresence>

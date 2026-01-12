@@ -1,5 +1,5 @@
 import { useState } from "react";
-import hydroelectricImg from "@assets/stock_images/hydroelectric_dam_wa_40adf41d.jpg";
+import hydroelectricImg from "@assets/image_1768258004921.png";
 import dashboardImg from "@assets/stock_images/industrial_process_a_5250e847.jpg";
 import refineryImg from "@assets/stock_images/oil_refinery_pipes_i_d50c23a2.jpg";
 import { motion, AnimatePresence } from "framer-motion";

@@ -242,12 +242,12 @@ export default function Resume() {
                 transition={{ duration: 0.3 }}
                 className="grid md:grid-cols-2 gap-6"
               >
-                <div className="glass rounded-2xl p-6 card-hover">
-                  <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                    <User className="w-5 h-5 text-[#1557cc]" />
+                <div className="glass rounded-2xl p-4 md:p-6 card-hover">
+                  <h2 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 flex items-center gap-2">
+                    <User className="w-4 h-4 md:w-5 md:h-5 text-[#1557cc]" />
                     Perfil Profesional
                   </h2>
-                  <p className="text-muted-foreground leading-relaxed whitespace-pre-line text-justify" data-testid="text-bio">
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed whitespace-pre-line text-justify" data-testid="text-bio">
                     {profileData.bio}
                   </p>
                 </div>

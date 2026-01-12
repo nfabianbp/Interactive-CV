@@ -1,4 +1,7 @@
 import { useState } from "react";
+import hydroelectricImg from "@assets/stock_images/hydroelectric_power__64090fdb.jpg";
+import dashboardImg from "@assets/stock_images/industrial_process_a_5250e847.jpg";
+import refineryImg from "@assets/stock_images/oil_refinery_pipes_i_d50c23a2.jpg";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   User, Briefcase, Code, FolderOpen, Mail, Phone, MapPin, 
@@ -76,7 +79,7 @@ const projects = [
     id: 1,
     name: "Refrigeración Generación de Energía",
     description: "Reemplazo equipos de intercambio de calor para refrigeración turbinas de generación de energía de hidroeléctrica Amoya CO - ISAGEN.",
-    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=300&fit=crop",
+    image: hydroelectricImg,
     technologies: ["Energía", "Intercambio de Calor", "Hidroeléctrica"],
     link: "#"
   },
@@ -84,7 +87,7 @@ const projects = [
     id: 2,
     name: "OPTIPARTNER® Secador",
     description: "Implementación primera solución digital de optimización de proceso de secado, para secador de emulsiones en planta de resinas MEXICHEM CO.",
-    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=300&fit=crop",
+    image: dashboardImg,
     technologies: ["Solución Digital", "Optimización", "Procesos Industriales"],
     link: "#"
   },
@@ -92,7 +95,7 @@ const projects = [
     id: 3,
     name: "Soportería Modular para Tubería",
     description: "Venta de primer proyecto de soportería modular para tubería de proceso en construcción de buque Oceanográfico desarrollado por COTECMAR CO.",
-    image: "https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=400&h=300&fit=crop",
+    image: refineryImg,
     technologies: ["Construcción Naval", "Soportería Modular", "Oil & Gas"],
     link: "#"
   }

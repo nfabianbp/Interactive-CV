@@ -46,11 +46,11 @@ const experiences = [
   },
   {
     id: 2,
-    company: "StartupMX",
-    role: "Full Stack Developer",
-    period: "2020 - 2022",
-    description: "Desarrollé aplicaciones móviles y web para clientes del sector fintech. Colaboré en un equipo ágil de 8 personas utilizando metodología Scrum.",
-    technologies: ["React Native", "TypeScript", "MongoDB", "Firebase"]
+    company: "HILTI LATINOAMERICA COLOMBIA",
+    role: "Key Account Manager O&G, Energía e Industria",
+    period: "2019 - 2022",
+    description: "Desarrollé y ejecuté estrategias de crecimiento de mercado para cuentas clave en las industrias de construcción, Oil & Gas y energía, posicionando soluciones técnicas de alto valor y fortaleciendo la presencia de la marca en proyectos estratégicos.\n\nLideré la gestión integral de cuentas clave, incluyendo planificación comercial, negociación de contratos marco y desarrollo de relaciones a nivel gerencial, coordinando equipos técnicos y comerciales para maximizar valor y fidelización.\n\nGestioné la coordinación con canales de distribución y cadena de suministro, alineando demanda, disponibilidad de producto y niveles de servicio para asegurar continuidad operativa, cumplimiento de acuerdos comerciales y satisfacción del cliente.",
+    technologies: ["Gestión de Cuentas Clave", "Oil & Gas", "Energía", "Negociación", "Cadena de Suministro"]
   },
   {
     id: 3,

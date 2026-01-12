@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   User, Briefcase, Code, FolderOpen, Mail, Phone, MapPin, 
   Linkedin, Github, ExternalLink, GraduationCap, Award,
-  Calendar, ChevronRight, Download, Send
+  Calendar, ChevronRight, Download, Send, Languages
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -262,6 +262,19 @@ export default function Resume() {
                         </p>
                       </div>
                     ))}
+                  </div>
+
+                  <h2 className="text-xl font-semibold mb-4 mt-6 flex items-center gap-2">
+                    <Languages className="w-5 h-5 text-indigo-500" />
+                    Idiomas
+                  </h2>
+                  <div className="space-y-2">
+                    <div className="border-l-2 border-indigo-500 pl-4">
+                      <h3 className="font-medium" data-testid="text-language-english">Inglés B2 - Intermedio</h3>
+                    </div>
+                    <div className="border-l-2 border-indigo-500 pl-4">
+                      <h3 className="font-medium" data-testid="text-language-spanish">Español - Nativo</h3>
+                    </div>
                   </div>
                 </div>
 

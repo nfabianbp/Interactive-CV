@@ -63,14 +63,12 @@ const experiences = [
 ];
 
 const skills = [
-  { name: "React / Next.js", level: 95, category: "frontend" },
-  { name: "TypeScript", level: 90, category: "frontend" },
-  { name: "Node.js / Express", level: 88, category: "backend" },
-  { name: "PostgreSQL / MongoDB", level: 85, category: "backend" },
-  { name: "AWS / GCP", level: 80, category: "devops" },
-  { name: "Docker / Kubernetes", level: 75, category: "devops" },
-  { name: "Python", level: 70, category: "backend" },
-  { name: "GraphQL", level: 78, category: "backend" }
+  { name: "CRM Cloud", level: 90, category: "software" },
+  { name: "SAP Business One", level: 85, category: "software" },
+  { name: "Ms Office", level: 95, category: "software" },
+  { name: "Power BI", level: 80, category: "software" },
+  { name: "Workday", level: 75, category: "software" },
+  { name: "Ms Outlook", level: 95, category: "software" }
 ];
 
 const projects = [
@@ -349,7 +347,7 @@ export default function Resume() {
               >
                 <div className="glass rounded-2xl p-6 mb-6">
                   <div className="flex flex-wrap gap-2">
-                    {["all", "frontend", "backend", "devops"].map((filter) => (
+                    {["all", "software"].map((filter) => (
                       <Button
                         key={filter}
                         variant={skillFilter === filter ? "default" : "outline"}
@@ -358,7 +356,7 @@ export default function Resume() {
                         className={skillFilter === filter ? "bg-gradient-to-r from-indigo-500 to-purple-600" : ""}
                         data-testid={`button-filter-${filter}`}
                       >
-                        {filter === "all" ? "Todas" : filter.charAt(0).toUpperCase() + filter.slice(1)}
+                        {filter === "all" ? "Todas" : "Software"}
                       </Button>
                     ))}
                   </div>

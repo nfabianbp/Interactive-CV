@@ -38,11 +38,11 @@ const profileData = {
 const experiences = [
   {
     id: 1,
-    company: "TechCorp Solutions",
-    role: "Senior Full Stack Developer",
-    period: "2022 - Presente",
-    description: "Lideré el desarrollo de una plataforma SaaS que sirve a más de 50,000 usuarios. Implementé arquitectura de microservicios y reduje el tiempo de carga en un 40%.",
-    technologies: ["React", "Node.js", "PostgreSQL", "AWS", "Docker"]
+    company: "GEA ANDINA SAS",
+    role: "Senior Services Sales Engineer – Andean Cluster",
+    period: "México, Colombia, Perú, Panamá",
+    description: "Lideré la estrategia comercial de servicios para cuentas industriales clave, integrando soluciones técnicas, contratos de servicio y proyectos de valor agregado, contribuyendo al crecimiento sostenible del negocio y al fortalecimiento de relaciones comerciales de largo plazo.\n\nGestioné y desarrollé portafolios estratégicos de clientes en industrias como energía, alimentos y procesos industriales, actuando como enlace entre clientes, equipos técnicos y liderazgo regional, con enfoque en rentabilidad, retención y expansión de oportunidades.\n\nImpulsé iniciativas de liderazgo comercial y mejora estratégica, participando activamente en la definición de planes de ventas, forecast, priorización de mercados y alineación de objetivos comerciales con la estrategia corporativa, demostrando capacidad para roles de dirección y toma de decisiones de alto nivel.",
+    technologies: ["Ventas Consultivas", "Gestión de Cuentas", "Estrategia Comercial", "Oil & Gas", "Energía"]
   },
   {
     id: 2,
@@ -324,7 +324,7 @@ export default function Resume() {
                         {exp.period}
                       </Badge>
                     </div>
-                    <p className="text-muted-foreground mb-4">{exp.description}</p>
+                    <p className="text-muted-foreground mb-4 whitespace-pre-line text-justify">{exp.description}</p>
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech, techIndex) => (
                         <Badge 

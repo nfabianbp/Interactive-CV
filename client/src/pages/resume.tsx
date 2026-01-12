@@ -102,14 +102,19 @@ const projects = [
 
 const education = [
   {
-    degree: "Maestría en Ciencias de la Computación",
-    school: "UNAM",
-    year: "2018"
+    degree: "Esp. Gestión de Proyectos",
+    school: "BUAP - Universidad Autónoma de Puebla, MX",
+    year: "2014"
   },
   {
-    degree: "Ingeniería en Sistemas Computacionales",
-    school: "IPN",
-    year: "2016"
+    degree: "Prof. Ingeniería Mecánica",
+    school: "Universidad Los Libertadores, CO",
+    year: "2013"
+  },
+  {
+    degree: "Tecn. Prof. Mecánica Industrial",
+    school: "SENA - Escuela Técnica",
+    year: "2006"
   }
 ];
 

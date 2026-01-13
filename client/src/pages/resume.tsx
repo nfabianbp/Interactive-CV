@@ -395,17 +395,17 @@ export default function Resume() {
                   </div>
                 </div>
 
-                <div className="glass rounded-2xl p-6 card-hover md:col-span-2">
-                  <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                    <Award className="w-5 h-5 text-[#1557cc]" />
+                <div className="glass rounded-xl md:rounded-2xl p-3 md:p-6 card-hover md:col-span-2">
+                  <h2 className="text-base md:text-xl font-semibold mb-3 md:mb-4 flex items-center gap-2">
+                    <Award className="w-4 h-4 md:w-5 md:h-5 text-[#1557cc]" />
                     Certificaciones
                   </h2>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 md:gap-3">
                     {certifications.map((cert, index) => (
                       <Badge 
                         key={index} 
                         variant="secondary" 
-                        className="px-4 py-2 text-sm bg-gradient-to-r from-blue-50 to-slate-50 border border-[#1557cc]/20"
+                        className="px-3 md:px-4 py-2 text-xs md:text-sm bg-gradient-to-r from-blue-50 to-slate-50 border border-[#1557cc]/20 w-full sm:w-auto text-center whitespace-normal"
                         data-testid={`badge-cert-${index}`}
                       >
                         {cert}

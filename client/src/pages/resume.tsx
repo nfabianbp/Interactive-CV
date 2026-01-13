@@ -191,10 +191,11 @@ export default function Resume() {
                       Contactar
                     </Button>
                   </a>
-                  <a href="https://www.linkedin.com/in/fabian-bernal-1032" target="_blank" rel="noopener noreferrer">
-                    <Button variant="ghost" size="icon" data-testid="button-linkedin">
-                      <Linkedin className="w-5 h-5" />
-                    </Button>
+                  <a href="https://www.linkedin.com/in/fabian-bernal-1032" target="_blank" rel="noopener noreferrer" data-testid="button-linkedin">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" className="w-8 h-8">
+                      <rect x="0" y="0" width="72" height="72" rx="4" fill="#0A66C2"/>
+                      <path fill="#fff" d="M20.5,53.5h-8V28h8V53.5z M16.5,24.5c-2.5,0-4.5-2-4.5-4.5s2-4.5,4.5-4.5s4.5,2,4.5,4.5S19,24.5,16.5,24.5z M56.5,53.5h-8V41c0-3-0.1-6.9-4.2-6.9c-4.2,0-4.9,3.3-4.9,6.7v12.8h-8V28h7.7v3.5h0.1c1.1-2,3.7-4.2,7.6-4.2c8.1,0,9.6,5.3,9.6,12.3V53.5z"/>
+                    </svg>
                   </a>
                   <Button variant="ghost" size="icon" data-testid="button-github">
                     <Github className="w-5 h-5" />
@@ -284,10 +285,11 @@ export default function Resume() {
                     Contactar
                   </Button>
                 </a>
-                <a href="https://www.linkedin.com/in/fabian-bernal-1032" target="_blank" rel="noopener noreferrer">
-                  <Button variant="ghost" size="icon" data-testid="button-linkedin-mobile">
-                    <Linkedin className="w-5 h-5" />
-                  </Button>
+                <a href="https://www.linkedin.com/in/fabian-bernal-1032" target="_blank" rel="noopener noreferrer" data-testid="button-linkedin-mobile">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" className="w-8 h-8">
+                    <rect x="0" y="0" width="72" height="72" rx="4" fill="#0A66C2"/>
+                    <path fill="#fff" d="M20.5,53.5h-8V28h8V53.5z M16.5,24.5c-2.5,0-4.5-2-4.5-4.5s2-4.5,4.5-4.5s4.5,2,4.5,4.5S19,24.5,16.5,24.5z M56.5,53.5h-8V41c0-3-0.1-6.9-4.2-6.9c-4.2,0-4.9,3.3-4.9,6.7v12.8h-8V28h7.7v3.5h0.1c1.1-2,3.7-4.2,7.6-4.2c8.1,0,9.6,5.3,9.6,12.3V53.5z"/>
+                  </svg>
                 </a>
                 <Button variant="ghost" size="icon" data-testid="button-github-mobile">
                   <Github className="w-5 h-5" />

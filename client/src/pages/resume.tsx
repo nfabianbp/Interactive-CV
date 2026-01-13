@@ -58,7 +58,7 @@ const translations = {
     englishLevel: "Inglés B2 - Intermedio",
     spanishLevel: "Español - Nativo",
     profileData: {
-      name: "Néstor Fabián Bernal",
+      name: "Ing. Néstor Fabián Bernal",
       title: "Líder Comercial - Consultor Para La Industria",
       location: "Bogotá D.C, Colombia",
       email: "nfabianbp@hotmail.com",
@@ -156,7 +156,7 @@ const translations = {
     industriesLabel: "Industries",
     featuredProjects: "Featured Projects",
     profileData: {
-      name: "Néstor Fabián Bernal",
+      name: "Ing. Néstor Fabián Bernal",
       title: "Commercial Leader - Industry Consultant",
       location: "Bogotá D.C, Colombia",
       email: "nfabianbp@hotmail.com",

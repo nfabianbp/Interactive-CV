@@ -185,10 +185,12 @@ export default function Resume() {
                     <Download className="w-4 h-4" />
                     Descargar CV
                   </Button>
-                  <Button variant="outline" className="gap-2" data-testid="button-contact">
-                    <Send className="w-4 h-4" />
-                    Contactar
-                  </Button>
+                  <a href="https://wa.me/573160493179" target="_blank" rel="noopener noreferrer">
+                    <Button variant="outline" className="gap-2" data-testid="button-contact">
+                      <Send className="w-4 h-4" />
+                      Contactar
+                    </Button>
+                  </a>
                   <Button variant="ghost" size="icon" data-testid="button-linkedin">
                     <Linkedin className="w-5 h-5" />
                   </Button>
@@ -274,10 +276,12 @@ export default function Resume() {
                   <Download className="w-4 h-4" />
                   Descargar CV
                 </Button>
-                <Button variant="outline" className="gap-2" data-testid="button-contact-mobile">
-                  <Send className="w-4 h-4" />
-                  Contactar
-                </Button>
+                <a href="https://wa.me/573160493179" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" className="gap-2" data-testid="button-contact-mobile">
+                    <Send className="w-4 h-4" />
+                    Contactar
+                  </Button>
+                </a>
                 <Button variant="ghost" size="icon" data-testid="button-linkedin-mobile">
                   <Linkedin className="w-5 h-5" />
                 </Button>

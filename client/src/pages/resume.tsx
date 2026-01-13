@@ -295,26 +295,25 @@ export default function Resume() {
                 </div>
 
                 <div className="flex flex-wrap justify-start gap-3">
-                  <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a]" data-testid="button-download-cv">
+                  <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a] cursor-pointer" data-testid="button-download-cv">
                     <Download className="w-4 h-4" />
                     {t.downloadCV}
                   </Button>
                   <a href="https://wa.me/573160493179" target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" className="gap-2" data-testid="button-contact">
+                    <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a] cursor-pointer" data-testid="button-contact">
                       <Send className="w-4 h-4" />
                       {t.contact}
                     </Button>
                   </a>
-                  <a href="https://www.linkedin.com/in/fabian-bernal-1032" target="_blank" rel="noopener noreferrer" data-testid="button-linkedin" className="flex items-center justify-center h-9 w-9 rounded-md border border-input bg-background hover:bg-accent hover:text-accent-foreground">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" className="w-5 h-5">
-                      <rect x="0" y="0" width="72" height="72" rx="4" fill="#0A66C2"/>
-                      <path fill="#fff" d="M20.5,53.5h-8V28h8V53.5z M16.5,24.5c-2.5,0-4.5-2-4.5-4.5s2-4.5,4.5-4.5s4.5,2,4.5,4.5S19,24.5,16.5,24.5z M56.5,53.5h-8V41c0-3-0.1-6.9-4.2-6.9c-4.2,0-4.9,3.3-4.9,6.7v12.8h-8V28h7.7v3.5h0.1c1.1-2,3.7-4.2,7.6-4.2c8.1,0,9.6,5.3,9.6,12.3V53.5z"/>
-                    </svg>
-                  </a>
-                  <Button variant="outline" className="gap-2" data-testid="button-language" onClick={() => setLanguage(language === "es" ? "en" : "es")}>
+                  <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a] cursor-pointer" data-testid="button-language" onClick={() => setLanguage(language === "es" ? "en" : "es")}>
                     <Globe className="w-4 h-4" />
                     {t.langButton}
                   </Button>
+                  <a href="https://www.linkedin.com/in/fabian-bernal-1032" target="_blank" rel="noopener noreferrer" data-testid="button-linkedin" className="flex items-center justify-center h-9 w-9 rounded-md bg-[#1557cc] hover:bg-[#1e3a8a] cursor-pointer transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 fill-white">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>
@@ -390,26 +389,25 @@ export default function Resume() {
               </div>
 
               <div className="flex flex-wrap justify-center gap-3">
-                <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a]" data-testid="button-download-cv-mobile">
+                <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a] cursor-pointer" data-testid="button-download-cv-mobile">
                   <Download className="w-4 h-4" />
                   {t.downloadCV}
                 </Button>
                 <a href="https://wa.me/573160493179" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" className="gap-2" data-testid="button-contact-mobile">
+                  <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a] cursor-pointer" data-testid="button-contact-mobile">
                     <Send className="w-4 h-4" />
                     {t.contact}
                   </Button>
                 </a>
-                <a href="https://www.linkedin.com/in/fabian-bernal-1032" target="_blank" rel="noopener noreferrer" data-testid="button-linkedin-mobile" className="flex items-center justify-center h-9 w-9 rounded-md border border-input bg-background hover:bg-accent hover:text-accent-foreground">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" className="w-5 h-5">
-                    <rect x="0" y="0" width="72" height="72" rx="4" fill="#0A66C2"/>
-                    <path fill="#fff" d="M20.5,53.5h-8V28h8V53.5z M16.5,24.5c-2.5,0-4.5-2-4.5-4.5s2-4.5,4.5-4.5s4.5,2,4.5,4.5S19,24.5,16.5,24.5z M56.5,53.5h-8V41c0-3-0.1-6.9-4.2-6.9c-4.2,0-4.9,3.3-4.9,6.7v12.8h-8V28h7.7v3.5h0.1c1.1-2,3.7-4.2,7.6-4.2c8.1,0,9.6,5.3,9.6,12.3V53.5z"/>
-                  </svg>
-                </a>
-                <Button variant="outline" className="gap-2" data-testid="button-language-mobile" onClick={() => setLanguage(language === "es" ? "en" : "es")}>
+                <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a] cursor-pointer" data-testid="button-language-mobile" onClick={() => setLanguage(language === "es" ? "en" : "es")}>
                   <Globe className="w-4 h-4" />
                   {t.langButton}
                 </Button>
+                <a href="https://www.linkedin.com/in/fabian-bernal-1032" target="_blank" rel="noopener noreferrer" data-testid="button-linkedin-mobile" className="flex items-center justify-center h-9 w-9 rounded-md bg-[#1557cc] hover:bg-[#1e3a8a] cursor-pointer transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 fill-white">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                </a>
               </div>
             </div>
           </div>

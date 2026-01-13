@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import jsPDF from "jspdf";
 import { QRCodeSVG } from "qrcode.react";
 import { 
-  User, Briefcase, Code, FolderOpen, Phone, MapPin, 
+  User, Briefcase, Code, FolderOpen, Phone, MapPin, Mail,
   Linkedin, Github, ExternalLink, GraduationCap, Award,
   Calendar, ChevronRight, Download, Send, Languages, LayoutDashboard,
   TrendingUp, Target, Globe, Building2
@@ -434,7 +434,7 @@ export default function Resume() {
                     {t.profileData.location}
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <Send className="w-4 h-4" />
+                    <Mail className="w-4 h-4" />
                     {t.profileData.email}
                   </span>
                   <span className="flex items-center gap-1.5">
@@ -540,7 +540,7 @@ export default function Resume() {
                   {t.profileData.location}
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Send className="w-4 h-4" />
+                  <Mail className="w-4 h-4" />
                   {t.profileData.email}
                 </span>
                 <span className="flex items-center gap-1.5">

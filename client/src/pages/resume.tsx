@@ -199,7 +199,7 @@ export default function Resume() {
                   </a>
                   <Button variant="outline" className="gap-2" data-testid="button-language">
                     <Globe className="w-4 h-4" />
-                    Español
+                    English
                   </Button>
                 </div>
               </div>
@@ -294,7 +294,7 @@ export default function Resume() {
                 </a>
                 <Button variant="outline" className="gap-2" data-testid="button-language-mobile">
                   <Globe className="w-4 h-4" />
-                  Español
+                  English
                 </Button>
               </div>
             </div>

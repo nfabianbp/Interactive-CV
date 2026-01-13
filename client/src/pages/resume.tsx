@@ -1,10 +1,9 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import hydroelectricImg from "@assets/image_1768258004921.png";
 import dashboardImg from "@assets/stock_images/industrial_process_a_5250e847.jpg";
 import refineryImg from "@assets/stock_images/oil_refinery_pipes_i_d50c23a2.jpg";
 import soporteriaImg from "@assets/image_1768269179998.png";
 import { motion, AnimatePresence } from "framer-motion";
-import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { 
   User, Briefcase, Code, FolderOpen, Mail, Phone, MapPin, 
@@ -244,7 +243,6 @@ export default function Resume() {
   const [skillFilter, setSkillFilter] = useState("all");
   const [language, setLanguage] = useState<"es" | "en">("es");
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
-  const resumeRef = useRef<HTMLDivElement>(null);
   
   const t = translations[language];
 
@@ -252,57 +250,108 @@ export default function Resume() {
     ? skills 
     : skills.filter(s => s.category === skillFilter);
 
-  const generatePDF = async () => {
-    if (!resumeRef.current || isGeneratingPDF) return;
+  const generatePDF = () => {
+    if (isGeneratingPDF) return;
     
     setIsGeneratingPDF(true);
     
     try {
-      const element = resumeRef.current;
-      const canvas = await html2canvas(element, {
-        scale: 1.5,
-        useCORS: true,
-        allowTaint: true,
-        logging: false,
-        backgroundColor: '#ffffff',
-        imageTimeout: 0,
-        onclone: (clonedDoc) => {
-          const clonedElement = clonedDoc.body.querySelector('[data-resume-content]') as HTMLElement;
-          if (clonedElement) {
-            clonedElement.style.paddingTop = '20px';
-          }
-        }
-      });
-      
-      const imgData = canvas.toDataURL('image/jpeg', 0.95);
       const pdf = new jsPDF({
         orientation: 'portrait',
         unit: 'mm',
         format: 'a4'
       });
       
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-      const imgWidth = canvas.width;
-      const imgHeight = canvas.height;
-      const ratio = Math.min(pdfWidth / imgWidth, (pdfHeight * 2) / imgHeight);
-      const imgX = (pdfWidth - imgWidth * ratio) / 2;
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const margin = 20;
+      const contentWidth = pageWidth - (margin * 2);
+      let yPos = margin;
       
-      const totalPages = Math.ceil((imgHeight * ratio) / pdfHeight);
-      
-      for (let page = 0; page < totalPages; page++) {
-        if (page > 0) {
+      const addText = (text: string, fontSize: number, isBold: boolean = false, color: number[] = [0, 0, 0]) => {
+        pdf.setFontSize(fontSize);
+        pdf.setFont("helvetica", isBold ? "bold" : "normal");
+        pdf.setTextColor(color[0], color[1], color[2]);
+        const lines = pdf.splitTextToSize(text, contentWidth);
+        
+        if (yPos + (lines.length * fontSize * 0.4) > pdf.internal.pageSize.getHeight() - margin) {
           pdf.addPage();
+          yPos = margin;
         }
-        pdf.addImage(
-          imgData, 
-          'JPEG', 
-          imgX, 
-          -(page * pdfHeight), 
-          imgWidth * ratio, 
-          imgHeight * ratio
-        );
-      }
+        
+        pdf.text(lines, margin, yPos);
+        yPos += lines.length * fontSize * 0.4 + 2;
+      };
+      
+      const addSection = (title: string) => {
+        yPos += 5;
+        pdf.setDrawColor(21, 87, 204);
+        pdf.setLineWidth(0.5);
+        pdf.line(margin, yPos, pageWidth - margin, yPos);
+        yPos += 7;
+        addText(title, 14, true, [21, 87, 204]);
+        yPos += 2;
+      };
+      
+      // Header
+      addText(t.profileData.name, 24, true, [21, 87, 204]);
+      addText(t.profileData.title, 14, false, [100, 100, 100]);
+      yPos += 3;
+      addText(`${t.profileData.location} | ${t.profileData.email} | ${t.profileData.phone}`, 10, false, [80, 80, 80]);
+      
+      // Profile
+      addSection(t.profile);
+      addText(t.profileData.bio.replace(/\n\n/g, ' '), 10);
+      
+      // Experience
+      addSection(t.experience);
+      t.experiences.forEach((exp) => {
+        addText(`${exp.company}`, 12, true);
+        addText(`${exp.role}`, 11, false, [21, 87, 204]);
+        addText(`${exp.period}`, 10, false, [100, 100, 100]);
+        addText(exp.description.replace(/\n\n/g, ' '), 10);
+        yPos += 3;
+      });
+      
+      // Education
+      addSection(t.educationLabel);
+      t.educationList.forEach((edu) => {
+        addText(`${edu.degree} - ${edu.school} (${edu.year})`, 10);
+      });
+      
+      // Certifications
+      addSection(t.certifications);
+      t.certificationsList.forEach((cert) => {
+        addText(`• ${cert}`, 10);
+      });
+      
+      // Skills
+      addSection(t.skills);
+      const skillNames = skills.map(s => s.name).join(", ");
+      addText(skillNames, 10);
+      
+      // Industries
+      addSection(t.industriesLabel);
+      addText(t.industries.join(", "), 10);
+      
+      // Languages
+      addSection(t.languages);
+      addText(`${t.spanishLevel}`, 10);
+      addText(`${t.englishLevel}`, 10);
+      
+      // Projects
+      addSection(t.projects);
+      t.projectsList.forEach((project) => {
+        addText(`${project.name}`, 11, true);
+        addText(project.description, 10);
+        addText(`${language === "es" ? "Tecnologías" : "Technologies"}: ${project.technologies.join(", ")}`, 9, false, [100, 100, 100]);
+        yPos += 2;
+      });
+      
+      // Footer
+      yPos += 10;
+      pdf.setFontSize(8);
+      pdf.setTextColor(150, 150, 150);
+      pdf.text(`LinkedIn: linkedin.com/in/fabian-bernal-1032 | WhatsApp: +57 316 049 3179`, margin, pdf.internal.pageSize.getHeight() - 10);
       
       const fileName = language === "es" 
         ? "CV_Ing_Nestor_Fabian_Bernal_ES.pdf"
@@ -484,7 +533,7 @@ export default function Resume() {
       </div>
 
       {/* Content area */}
-      <div ref={resumeRef} className="relative max-w-6xl mx-auto px-1 sm:px-3 md:px-6 py-4 md:pt-[420px] w-full box-border">
+      <div className="relative max-w-6xl mx-auto px-1 sm:px-3 md:px-6 py-4 md:pt-[420px] w-full box-border">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           {/* Mobile tabs */}
           <motion.div

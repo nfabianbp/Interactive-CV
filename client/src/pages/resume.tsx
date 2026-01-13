@@ -260,13 +260,21 @@ export default function Resume() {
     try {
       const element = resumeRef.current;
       const canvas = await html2canvas(element, {
-        scale: 2,
+        scale: 1.5,
         useCORS: true,
+        allowTaint: true,
         logging: false,
-        backgroundColor: '#ffffff'
+        backgroundColor: '#ffffff',
+        imageTimeout: 0,
+        onclone: (clonedDoc) => {
+          const clonedElement = clonedDoc.body.querySelector('[data-resume-content]') as HTMLElement;
+          if (clonedElement) {
+            clonedElement.style.paddingTop = '20px';
+          }
+        }
       });
       
-      const imgData = canvas.toDataURL('image/png');
+      const imgData = canvas.toDataURL('image/jpeg', 0.95);
       const pdf = new jsPDF({
         orientation: 'portrait',
         unit: 'mm',
@@ -277,11 +285,24 @@ export default function Resume() {
       const pdfHeight = pdf.internal.pageSize.getHeight();
       const imgWidth = canvas.width;
       const imgHeight = canvas.height;
-      const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+      const ratio = Math.min(pdfWidth / imgWidth, (pdfHeight * 2) / imgHeight);
       const imgX = (pdfWidth - imgWidth * ratio) / 2;
-      const imgY = 0;
       
-      pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
+      const totalPages = Math.ceil((imgHeight * ratio) / pdfHeight);
+      
+      for (let page = 0; page < totalPages; page++) {
+        if (page > 0) {
+          pdf.addPage();
+        }
+        pdf.addImage(
+          imgData, 
+          'JPEG', 
+          imgX, 
+          -(page * pdfHeight), 
+          imgWidth * ratio, 
+          imgHeight * ratio
+        );
+      }
       
       const fileName = language === "es" 
         ? "CV_Ing_Nestor_Fabian_Bernal_ES.pdf"
@@ -290,6 +311,7 @@ export default function Resume() {
       pdf.save(fileName);
     } catch (error) {
       console.error('Error generating PDF:', error);
+      alert(language === "es" ? "Error al generar PDF. Intente de nuevo." : "Error generating PDF. Please try again.");
     } finally {
       setIsGeneratingPDF(false);
     }

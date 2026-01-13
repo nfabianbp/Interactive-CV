@@ -395,7 +395,7 @@ export default function Resume() {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <img 
-                  src="/attached_assets/image_1768274178602.png" 
+                  src="/profile-photo.png" 
                   alt="Néstor Fabián Bernal"
                   className="w-40 h-40 rounded-full object-cover shadow-2xl"
                 />
@@ -513,7 +513,7 @@ export default function Resume() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <img 
-                src="/attached_assets/image_1768274178602.png" 
+                src="/profile-photo.png" 
                 alt="Néstor Fabián Bernal"
                 className="w-32 h-32 rounded-full object-cover shadow-2xl"
               />

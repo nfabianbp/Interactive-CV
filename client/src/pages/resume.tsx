@@ -267,7 +267,7 @@ export default function Resume() {
                     <User className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-[#1557cc] flex-shrink-0" />
                     Perfil Profesional
                   </h2>
-                  <p className="text-[11px] sm:text-xs md:text-base text-muted-foreground leading-relaxed md:text-justify w-full whitespace-pre-line" style={{ wordBreak: 'break-word', hyphens: 'auto', overflowWrap: 'break-word' }} data-testid="text-bio">
+                  <p className="text-[13px] sm:text-sm md:text-base text-muted-foreground leading-relaxed md:text-justify w-full whitespace-pre-line" style={{ wordBreak: 'break-word', hyphens: 'auto', overflowWrap: 'break-word' }} data-testid="text-bio">
                     {profileData.bio}
                   </p>
                 </div>

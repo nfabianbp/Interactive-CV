@@ -402,11 +402,11 @@ export default function Resume() {
 
               <div className="flex-1 text-left">
               
-              <div className="absolute top-6 right-6 flex flex-col items-center">
+              <div className="absolute top-1/2 -translate-y-1/2 right-6 flex flex-col items-center">
                 <div className="bg-white p-2 rounded-lg shadow-lg">
                   <QRCodeSVG 
                     value="https://interactive-cv--nfabianbp.replit.app/" 
-                    size={80}
+                    size={96}
                     level="M"
                     fgColor="#1557cc"
                   />
@@ -494,11 +494,11 @@ export default function Resume() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="absolute top-3 right-3 flex flex-col items-center">
+          <div className="absolute top-1/2 -translate-y-1/2 right-3 flex flex-col items-center">
             <div className="bg-white p-1.5 rounded-lg shadow-md">
               <QRCodeSVG 
                 value="https://interactive-cv--nfabianbp.replit.app/" 
-                size={50}
+                size={60}
                 level="M"
                 fgColor="#1557cc"
               />

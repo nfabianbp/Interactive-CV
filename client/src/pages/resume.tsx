@@ -134,7 +134,7 @@ export default function Resume() {
     : skills.filter(s => s.category === skillFilter);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50 overflow-x-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-indigo-200/40 to-purple-200/40 rounded-full blur-3xl" />
         <div className="absolute top-1/2 -left-40 w-96 h-96 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl" />
@@ -262,12 +262,12 @@ export default function Resume() {
                 transition={{ duration: 0.3 }}
                 className="grid md:grid-cols-2 gap-6"
               >
-                <div className="glass rounded-2xl p-4 md:p-6 card-hover overflow-hidden">
+                <div className="glass rounded-2xl p-4 md:p-6 card-hover overflow-hidden w-full">
                   <h2 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 flex items-center gap-2">
                     <User className="w-4 h-4 md:w-5 md:h-5 text-[#1557cc] flex-shrink-0" />
                     Perfil Profesional
                   </h2>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed text-justify break-words" data-testid="text-bio">
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed text-justify break-words overflow-wrap-anywhere w-full" style={{ wordBreak: 'break-word', overflowWrap: 'anywhere' }} data-testid="text-bio">
                     {profileData.bio}
                   </p>
                 </div>

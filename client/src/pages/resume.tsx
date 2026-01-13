@@ -394,7 +394,7 @@ export default function Resume() {
       <div className="hidden md:block fixed top-0 left-0 right-0 z-50 bg-gradient-to-br from-slate-50/98 via-white/98 to-indigo-50/98 backdrop-blur-md shadow-lg">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <header className="glass rounded-2xl p-10 shadow-xl mb-4 relative">
-            <div className="absolute top-1/2 -translate-y-1/2 left-8 flex flex-col items-center">
+            <div className="absolute top-1/2 -translate-y-1/2 right-8 flex flex-col items-center">
               <div className="bg-white p-2 rounded-lg shadow-lg">
                 <QRCodeSVG 
                   value="https://interactive-cv--nfabianbp.replit.app/" 
@@ -405,7 +405,7 @@ export default function Resume() {
               </div>
               <span className="text-xs text-muted-foreground mt-1">{language === "es" ? "Escanear" : "Scan"}</span>
             </div>
-            <div className="flex items-center gap-10 pl-32">
+            <div className="flex items-center gap-10 pr-32">
               <motion.div 
                 className="relative"
                 whileHover={{ scale: 1.05 }}
@@ -501,7 +501,7 @@ export default function Resume() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="absolute top-3 left-3 flex flex-col items-center">
+          <div className="absolute top-3 right-3 flex flex-col items-center">
             <div className="bg-white p-1.5 rounded-lg shadow-md">
               <QRCodeSVG 
                 value="https://interactive-cv--nfabianbp.replit.app/" 

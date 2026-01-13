@@ -110,8 +110,8 @@ const translations = {
       },
       {
         id: 2,
-        name: "OPTIPARTNER® Secador",
-        description: "Implementación de primera solución digital de optimización de proceso de secado en la región, para los secadores de emulsión de la planta de resinas - MEXICHEM CO.",
+        name: "Proyecto de optimización de procesos – Secadores industriales",
+        description: "Participación en la implementación de la solución OptiPartner para la optimización del proceso de secado en secadores de emulsión en planta de resinas, siendo la primera implementación digital de este tipo en la región, en Mexichem.",
         image: dashboardImg,
         technologies: ["Solución Digital", "Optimización", "Procesos Industriales"],
         link: "#"
@@ -208,8 +208,8 @@ const translations = {
       },
       {
         id: 2,
-        name: "OPTIPARTNER® Dryer",
-        description: "Implementation of the first digital drying process optimization solution in the region, for the emulsion dryers at the resins plant - MEXICHEM CO.",
+        name: "Process Optimization Project – Industrial Dryers",
+        description: "Participation in the implementation of the OptiPartner solution for the optimization of the drying process in emulsion dryers at a resin plant, being the first digital implementation of this type in the region, at Mexichem.",
         image: dashboardImg,
         technologies: ["Digital Solution", "Optimization", "Industrial Processes"],
         link: "#"

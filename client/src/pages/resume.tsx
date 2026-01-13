@@ -611,7 +611,7 @@ export default function Resume() {
                       <div className="p-2 rounded-lg bg-gradient-to-br from-orange-500 to-amber-600">
                         <Target className="w-5 h-5 text-white" />
                       </div>
-                      <span className="text-sm text-muted-foreground">Proyectos</span>
+                      <span className="text-sm text-muted-foreground">Proyectos más importantes</span>
                     </div>
                     <p className="text-3xl font-bold text-orange-600">{projects.length}</p>
                   </motion.div>

@@ -191,9 +191,11 @@ export default function Resume() {
                       Contactar
                     </Button>
                   </a>
-                  <Button variant="ghost" size="icon" data-testid="button-linkedin">
-                    <Linkedin className="w-5 h-5" />
-                  </Button>
+                  <a href="https://www.linkedin.com/in/fabian-bernal-1032" target="_blank" rel="noopener noreferrer">
+                    <Button variant="ghost" size="icon" data-testid="button-linkedin">
+                      <Linkedin className="w-5 h-5" />
+                    </Button>
+                  </a>
                   <Button variant="ghost" size="icon" data-testid="button-github">
                     <Github className="w-5 h-5" />
                   </Button>
@@ -282,9 +284,11 @@ export default function Resume() {
                     Contactar
                   </Button>
                 </a>
-                <Button variant="ghost" size="icon" data-testid="button-linkedin-mobile">
-                  <Linkedin className="w-5 h-5" />
-                </Button>
+                <a href="https://www.linkedin.com/in/fabian-bernal-1032" target="_blank" rel="noopener noreferrer">
+                  <Button variant="ghost" size="icon" data-testid="button-linkedin-mobile">
+                    <Linkedin className="w-5 h-5" />
+                  </Button>
+                </a>
                 <Button variant="ghost" size="icon" data-testid="button-github-mobile">
                   <Github className="w-5 h-5" />
                 </Button>

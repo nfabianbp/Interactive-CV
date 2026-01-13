@@ -142,7 +142,7 @@ export default function Resume() {
 
       <div className="relative max-w-6xl mx-auto px-1 sm:px-3 md:px-6 py-4 md:py-12 w-full box-border" style={{ overflowX: 'hidden' }}>
         <motion.header 
-          className="glass rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-10 mb-4 md:mb-8 shadow-xl"
+          className="glass rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-10 mb-4 md:mb-8 shadow-xl md:sticky md:top-4 md:z-50"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -208,7 +208,7 @@ export default function Resume() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <TabsList className="w-full glass mb-6 md:mb-8 p-1 md:p-1.5 h-auto grid grid-cols-5 gap-1">
+            <TabsList className="w-full glass mb-6 md:mb-8 p-1 md:p-1.5 h-auto grid grid-cols-5 gap-1 md:sticky md:top-[200px] md:z-40">
               <TabsTrigger 
                 value="about" 
                 className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 py-2 md:py-3 px-1 md:px-3 text-xs md:text-sm font-medium transition-all data-[state=active]:bg-[#1557cc] data-[state=active]:text-white data-[state=active]:shadow-lg rounded-lg" 

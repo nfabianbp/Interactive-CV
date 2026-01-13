@@ -260,7 +260,7 @@ export default function Resume() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
                 transition={{ duration: 0.3 }}
-                className="grid md:grid-cols-2 gap-2 sm:gap-3 md:gap-6 w-full" style={{ maxWidth: '100%' }}
+                className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 w-full"
               >
                 <div className="glass rounded-xl md:rounded-2xl p-2 sm:p-3 md:p-6 card-hover min-w-0 w-full" style={{ overflow: 'hidden' }}>
                   <h2 className="text-sm sm:text-base md:text-xl font-semibold mb-2 md:mb-4 flex items-center gap-2">

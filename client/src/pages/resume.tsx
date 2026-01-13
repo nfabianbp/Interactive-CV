@@ -29,43 +29,204 @@ const staggerContainer = {
   }
 };
 
-const profileData = {
-  name: "Néstor Fabián Bernal",
-  title: "Líder Comercial - Consultor Para La Industria",
-  location: "Bogotá D.C, Colombia",
-  email: "nfabianbp@hotmail.com",
-  phone: "+57 316 049 3179",
-  linkedin: "linkedin.com/in/nestorbernal",
-  github: "",
-  bio: "Ingeniero Mecánico especialista en Gestión de Proyectos y más de 13 años de experiencia en ventas consultivas, liderazgo comercial y desarrollo estratégico de negocios para soluciones técnicas, tecnología y proyectos industriales. Amplia trayectoria en las industrias petroquímica, Oil & Gas, energía, metalmecánica y alimentos, gestionando portafolios comerciales y proyectos de alto impacto.\n\nProfesional con sólidas habilidades de liderazgo, capaz de dirigir equipos comerciales y técnicos multidisciplinarios, definir e implementar estrategias comerciales y empresariales, y liderar procesos de preventa, negociación y cierre de contratos complejos. Experiencia en gestión de cuentas clave, expansión de mercados, análisis financiero-comercial y alineación de objetivos comerciales con la estrategia corporativa.\n\nOrientado a resultados, rentabilidad y crecimiento sostenible, con fuerte enfoque en la toma de decisiones estratégicas, generación de valor para el cliente y construcción de relaciones comerciales de largo plazo en entornos industriales altamente competitivos."
-};
-
-const experiences = [
-  {
-    id: 1,
-    company: "GEA ANDINA SAS",
-    role: "Senior Services Sales Engineer – Andean Cluster\n(México, Colombia, Perú, Panamá)",
-    period: "2022 - Actual",
-    description: "Lideré la estrategia comercial de servicios para cuentas industriales clave, integrando soluciones técnicas, contratos de servicio y proyectos de valor agregado, contribuyendo al crecimiento sostenible del negocio y al fortalecimiento de relaciones comerciales de largo plazo.\n\nGestioné y desarrollé portafolios estratégicos de clientes en industrias como energía, alimentos y procesos industriales, actuando como enlace entre clientes, equipos técnicos y liderazgo regional, con enfoque en rentabilidad, retención y expansión de oportunidades.\n\nImpulsé iniciativas de liderazgo comercial y mejora estratégica, participando activamente en la definición de planes de ventas, forecast, priorización de mercados y alineación de objetivos comerciales con la estrategia corporativa, demostrando capacidad para roles de dirección y toma de decisiones de alto nivel.",
-    technologies: ["Ventas Consultivas", "Gestión de Cuentas", "Estrategia Comercial", "Oil & Gas", "Energía"]
+const translations = {
+  es: {
+    langButton: "English",
+    downloadCV: "Descargar CV",
+    contact: "Contactar",
+    aboutMe: "Sobre Mí",
+    experience: "Experiencia",
+    skills: "Habilidades",
+    projects: "Proyectos",
+    dashboard: "Dashboard",
+    profile: "Perfil Profesional",
+    educationLabel: "Formación Académica",
+    certifications: "Certificaciones",
+    softwareTools: "Herramientas de Software",
+    allSkills: "Todas",
+    software: "Software",
+    viewProject: "Ver Proyecto",
+    yearsExp: "Años de Experiencia",
+    companies: "Empresas",
+    importantProjects: "Proyectos más importantes",
+    countries: "Países",
+    profTrajectory: "Trayectoria Profesional",
+    skillsLevel: "Nivel de Competencias",
+    industriesLabel: "Industrias de Experiencia",
+    featuredProjects: "Proyectos Destacados",
+    languages: "Idiomas",
+    englishLevel: "Inglés B2 - Intermedio",
+    spanishLevel: "Español - Nativo",
+    profileData: {
+      name: "Néstor Fabián Bernal",
+      title: "Líder Comercial - Consultor Para La Industria",
+      location: "Bogotá D.C, Colombia",
+      email: "nfabianbp@hotmail.com",
+      phone: "+57 316 049 3179",
+      bio: "Ingeniero Mecánico especialista en Gestión de Proyectos y más de 13 años de experiencia en ventas consultivas, liderazgo comercial y desarrollo estratégico de negocios para soluciones técnicas, tecnología y proyectos industriales. Amplia trayectoria en las industrias petroquímica, Oil & Gas, energía, metalmecánica y alimentos, gestionando portafolios comerciales y proyectos de alto impacto.\n\nProfesional con sólidas habilidades de liderazgo, capaz de dirigir equipos comerciales y técnicos multidisciplinarios, definir e implementar estrategias comerciales y empresariales, y liderar procesos de preventa, negociación y cierre de contratos complejos. Experiencia en gestión de cuentas clave, expansión de mercados, análisis financiero-comercial y alineación de objetivos comerciales con la estrategia corporativa.\n\nOrientado a resultados, rentabilidad y crecimiento sostenible, con fuerte enfoque en la toma de decisiones estratégicas, generación de valor para el cliente y construcción de relaciones comerciales de largo plazo en entornos industriales altamente competitivos."
+    },
+    experiences: [
+      {
+        id: 1,
+        company: "GEA ANDINA SAS",
+        role: "Senior Services Sales Engineer – Andean Cluster\n(México, Colombia, Perú, Panamá)",
+        period: "2022 - Actual",
+        description: "Lideré la estrategia comercial de servicios para cuentas industriales clave, integrando soluciones técnicas, contratos de servicio y proyectos de valor agregado, contribuyendo al crecimiento sostenible del negocio y al fortalecimiento de relaciones comerciales de largo plazo.\n\nGestioné y desarrollé portafolios estratégicos de clientes en industrias como energía, alimentos y procesos industriales, actuando como enlace entre clientes, equipos técnicos y liderazgo regional, con enfoque en rentabilidad, retención y expansión de oportunidades.\n\nImpulsé iniciativas de liderazgo comercial y mejora estratégica, participando activamente en la definición de planes de ventas, forecast, priorización de mercados y alineación de objetivos comerciales con la estrategia corporativa, demostrando capacidad para roles de dirección y toma de decisiones de alto nivel.",
+        technologies: ["Ventas Consultivas", "Gestión de Cuentas", "Estrategia Comercial", "Oil & Gas", "Energía"]
+      },
+      {
+        id: 2,
+        company: "HILTI LATINOAMERICA COLOMBIA",
+        role: "Key Account Manager O&G, Energía e Industria",
+        period: "2019 - 2022",
+        description: "Desarrollé y ejecuté estrategias de crecimiento de mercado para cuentas clave en las industrias de construcción, Oil & Gas y energía, posicionando soluciones técnicas de alto valor y fortaleciendo la presencia de la marca en proyectos estratégicos.\n\nLideré la gestión integral de cuentas clave, incluyendo planificación comercial, negociación de contratos marco y desarrollo de relaciones a nivel gerencial, coordinando equipos técnicos y comerciales para maximizar valor y fidelización.\n\nGestioné la coordinación con canales de distribución y cadena de suministro, alineando demanda, disponibilidad de producto y niveles de servicio para asegurar continuidad operativa, cumplimiento de acuerdos comerciales y satisfacción del cliente.",
+        technologies: ["Gestión de Cuentas Clave", "Oil & Gas", "Energía", "Negociación", "Cadena de Suministro"]
+      },
+      {
+        id: 3,
+        company: "PFERD PANAMERICANA",
+        role: "Representante de Ventas Industriales\n(Países Región Andina)",
+        period: "2016 - 2018",
+        description: "Lideré el desarrollo y expansión de mercado en la región, incrementando la cobertura comercial y el posicionamiento de la marca mediante la gestión estratégica de distribuidores, definición de planes de sell in y sell out, y ejecución de acciones comerciales alineadas con los objetivos regionales.\n\nImpulsé el crecimiento de ventas a través del trabajo directo con la fuerza de ventas y usuarios finales, realizando entrenamientos, demostraciones técnicas y acompañamiento en campo, fortaleciendo la propuesta de valor, la adopción de productos y la fidelización de clientes.",
+        technologies: ["Desarrollo de Mercado", "Gestión de Distribuidores", "Ventas Industriales", "Capacitación Técnica"]
+      }
+    ],
+    projectsList: [
+      {
+        id: 1,
+        name: "Refrigeración Generación de Energía",
+        description: "Remplazo e implementación de intercambiadores de calor de última generación para refrigeración óptima de las turbinas de generación de energía en hidroeléctrica Amoya CO.",
+        image: hydroelectricImg,
+        technologies: ["Energía", "Intercambio de Calor", "Hidroeléctrica"],
+        link: "#"
+      },
+      {
+        id: 2,
+        name: "OPTIPARTNER® Secador",
+        description: "Implementación de primera solución digital de optimización de proceso de secado en la región, para los secadores de emulsión de la planta de resinas - MEXICHEM CO.",
+        image: dashboardImg,
+        technologies: ["Solución Digital", "Optimización", "Procesos Industriales"],
+        link: "#"
+      },
+      {
+        id: 3,
+        name: "Soportería Modular para Tubería",
+        description: "Venta de primer proyecto de soportería modular para tubería de proceso en construcción de buque Oceanográfico desarrollado por COTECMAR CO.",
+        image: soporteriaImg,
+        technologies: ["Construcción Naval", "Soportería Modular", "Oil & Gas"],
+        link: "#"
+      }
+    ],
+    educationList: [
+      { degree: "Esp. Gestión de Proyectos", school: "BUAP - Universidad Autónoma de Puebla, MX", year: "2014" },
+      { degree: "Prof. Ingeniería Mecánica", school: "Universidad Los Libertadores, CO", year: "2013" },
+      { degree: "Tecn. Prof. Mecánica Industrial", school: "SENA - Escuela Técnica", year: "2006" }
+    ],
+    certificationsList: [
+      "Entrenamiento Avanzado en Ventas SSS (México, 2019)",
+      "Juice - Value Based Sales Training (México, 2014)"
+    ],
+    industries: ["Oil & Gas", "Energía", "Petroquímica", "Alimentos", "Metalmecánica", "Construcción Naval", "Hidroeléctrica"]
   },
-  {
-    id: 2,
-    company: "HILTI LATINOAMERICA COLOMBIA",
-    role: "Key Account Manager O&G, Energía e Industria",
-    period: "2019 - 2022",
-    description: "Desarrollé y ejecuté estrategias de crecimiento de mercado para cuentas clave en las industrias de construcción, Oil & Gas y energía, posicionando soluciones técnicas de alto valor y fortaleciendo la presencia de la marca en proyectos estratégicos.\n\nLideré la gestión integral de cuentas clave, incluyendo planificación comercial, negociación de contratos marco y desarrollo de relaciones a nivel gerencial, coordinando equipos técnicos y comerciales para maximizar valor y fidelización.\n\nGestioné la coordinación con canales de distribución y cadena de suministro, alineando demanda, disponibilidad de producto y niveles de servicio para asegurar continuidad operativa, cumplimiento de acuerdos comerciales y satisfacción del cliente.",
-    technologies: ["Gestión de Cuentas Clave", "Oil & Gas", "Energía", "Negociación", "Cadena de Suministro"]
-  },
-  {
-    id: 3,
-    company: "PFERD PANAMERICANA",
-    role: "Representante de Ventas Industriales\n(Países Región Andina)",
-    period: "2016 - 2018",
-    description: "Lideré el desarrollo y expansión de mercado en la región, incrementando la cobertura comercial y el posicionamiento de la marca mediante la gestión estratégica de distribuidores, definición de planes de sell in y sell out, y ejecución de acciones comerciales alineadas con los objetivos regionales.\n\nImpulsé el crecimiento de ventas a través del trabajo directo con la fuerza de ventas y usuarios finales, realizando entrenamientos, demostraciones técnicas y acompañamiento en campo, fortaleciendo la propuesta de valor, la adopción de productos y la fidelización de clientes.",
-    technologies: ["Desarrollo de Mercado", "Gestión de Distribuidores", "Ventas Industriales", "Capacitación Técnica"]
+  en: {
+    langButton: "Español",
+    downloadCV: "Download CV",
+    contact: "Contact",
+    aboutMe: "About Me",
+    experience: "Experience",
+    skills: "Skills",
+    projects: "Projects",
+    dashboard: "Dashboard",
+    profile: "Professional Profile",
+    educationLabel: "Education",
+    certifications: "Certifications",
+    languages: "Languages",
+    englishLevel: "English B2 - Intermediate",
+    spanishLevel: "Spanish - Native",
+    softwareTools: "Software Tools",
+    allSkills: "All",
+    software: "Software",
+    viewProject: "View Project",
+    yearsExp: "Years of Experience",
+    companies: "Companies",
+    importantProjects: "Key Projects",
+    countries: "Countries",
+    profTrajectory: "Professional Trajectory",
+    skillsLevel: "Skill Levels",
+    industriesLabel: "Industries",
+    featuredProjects: "Featured Projects",
+    profileData: {
+      name: "Néstor Fabián Bernal",
+      title: "Commercial Leader - Industry Consultant",
+      location: "Bogotá D.C, Colombia",
+      email: "nfabianbp@hotmail.com",
+      phone: "+57 316 049 3179",
+      bio: "Mechanical Engineer specialized in Project Management with over 13 years of experience in consultative sales, commercial leadership, and strategic business development for technical solutions, technology, and industrial projects. Extensive background in the petrochemical, Oil & Gas, energy, metalworking, and food industries, managing commercial portfolios and high-impact projects.\n\nProfessional with strong leadership skills, capable of leading multidisciplinary commercial and technical teams, defining and implementing commercial and business strategies, and leading presales, negotiation, and complex contract closing processes. Experience in key account management, market expansion, financial-commercial analysis, and aligning commercial objectives with corporate strategy.\n\nResults-oriented, focused on profitability and sustainable growth, with a strong emphasis on strategic decision-making, customer value generation, and building long-term commercial relationships in highly competitive industrial environments."
+    },
+    experiences: [
+      {
+        id: 1,
+        company: "GEA ANDINA SAS",
+        role: "Senior Services Sales Engineer – Andean Cluster\n(Mexico, Colombia, Peru, Panama)",
+        period: "2022 - Present",
+        description: "Led the commercial services strategy for key industrial accounts, integrating technical solutions, service contracts, and value-added projects, contributing to sustainable business growth and strengthening long-term commercial relationships.\n\nManaged and developed strategic client portfolios in industries such as energy, food, and industrial processes, acting as a liaison between clients, technical teams, and regional leadership, with a focus on profitability, retention, and opportunity expansion.\n\nDrove commercial leadership initiatives and strategic improvement, actively participating in defining sales plans, forecasting, market prioritization, and aligning commercial objectives with corporate strategy, demonstrating capacity for management roles and high-level decision-making.",
+        technologies: ["Consultative Sales", "Account Management", "Commercial Strategy", "Oil & Gas", "Energy"]
+      },
+      {
+        id: 2,
+        company: "HILTI LATINOAMERICA COLOMBIA",
+        role: "Key Account Manager O&G, Energy & Industry",
+        period: "2019 - 2022",
+        description: "Developed and executed market growth strategies for key accounts in the construction, Oil & Gas, and energy industries, positioning high-value technical solutions and strengthening brand presence in strategic projects.\n\nLed comprehensive key account management, including commercial planning, framework contract negotiation, and relationship development at management level, coordinating technical and commercial teams to maximize value and customer loyalty.\n\nManaged coordination with distribution channels and supply chain, aligning demand, product availability, and service levels to ensure operational continuity, compliance with commercial agreements, and customer satisfaction.",
+        technologies: ["Key Account Management", "Oil & Gas", "Energy", "Negotiation", "Supply Chain"]
+      },
+      {
+        id: 3,
+        company: "PFERD PANAMERICANA",
+        role: "Industrial Sales Representative\n(Andean Region Countries)",
+        period: "2016 - 2018",
+        description: "Led market development and expansion in the region, increasing commercial coverage and brand positioning through strategic distributor management, defining sell-in and sell-out plans, and executing commercial actions aligned with regional objectives.\n\nDrove sales growth through direct work with sales force and end users, conducting training, technical demonstrations, and field support, strengthening the value proposition, product adoption, and customer loyalty.",
+        technologies: ["Market Development", "Distributor Management", "Industrial Sales", "Technical Training"]
+      }
+    ],
+    projectsList: [
+      {
+        id: 1,
+        name: "Power Generation Cooling",
+        description: "Replacement and implementation of state-of-the-art heat exchangers for optimal cooling of power generation turbines at Amoya Hydroelectric Plant, CO.",
+        image: hydroelectricImg,
+        technologies: ["Energy", "Heat Exchange", "Hydroelectric"],
+        link: "#"
+      },
+      {
+        id: 2,
+        name: "OPTIPARTNER® Dryer",
+        description: "Implementation of the first digital drying process optimization solution in the region, for the emulsion dryers at the resins plant - MEXICHEM CO.",
+        image: dashboardImg,
+        technologies: ["Digital Solution", "Optimization", "Industrial Processes"],
+        link: "#"
+      },
+      {
+        id: 3,
+        name: "Modular Pipe Support System",
+        description: "Sale of the first modular pipe support project for process piping in the construction of an Oceanographic vessel developed by COTECMAR CO.",
+        image: soporteriaImg,
+        technologies: ["Naval Construction", "Modular Supports", "Oil & Gas"],
+        link: "#"
+      }
+    ],
+    educationList: [
+      { degree: "Spec. Project Management", school: "BUAP - Autonomous University of Puebla, MX", year: "2014" },
+      { degree: "B.Eng. Mechanical Engineering", school: "Universidad Los Libertadores, CO", year: "2013" },
+      { degree: "Tech. Industrial Mechanics", school: "SENA - Technical School", year: "2006" }
+    ],
+    certificationsList: [
+      "Advanced Sales Training SSS (Mexico, 2019)",
+      "Juice - Value Based Sales Training (Mexico, 2014)"
+    ],
+    industries: ["Oil & Gas", "Energy", "Petrochemical", "Food", "Metalworking", "Naval Construction", "Hydroelectric"]
   }
-];
+};
 
 const skills = [
   { name: "CRM Cloud", level: 90, category: "software" },
@@ -76,59 +237,12 @@ const skills = [
   { name: "Ms Outlook", level: 95, category: "software" }
 ];
 
-const projects = [
-  {
-    id: 1,
-    name: "Refrigeración Generación de Energía",
-    description: "Remplazo e implementación de intercambiadores de calor de última generación para refrigeración óptima de las turbinas de generación de energía en hidroeléctrica Amoya CO.",
-    image: hydroelectricImg,
-    technologies: ["Energía", "Intercambio de Calor", "Hidroeléctrica"],
-    link: "#"
-  },
-  {
-    id: 2,
-    name: "OPTIPARTNER® Secador",
-    description: "Implementación de primera solución digital de optimización de proceso de secado en la región, para los secadores de emulsión de la planta de resinas - MEXICHEM CO.",
-    image: dashboardImg,
-    technologies: ["Solución Digital", "Optimización", "Procesos Industriales"],
-    link: "#"
-  },
-  {
-    id: 3,
-    name: "Soportería Modular para Tubería",
-    description: "Venta de primer proyecto de soportería modular para tubería de proceso en construcción de buque Oceanográfico desarrollado por COTECMAR CO.",
-    image: soporteriaImg,
-    technologies: ["Construcción Naval", "Soportería Modular", "Oil & Gas"],
-    link: "#"
-  }
-];
-
-const education = [
-  {
-    degree: "Esp. Gestión de Proyectos",
-    school: "BUAP - Universidad Autónoma de Puebla, MX",
-    year: "2014"
-  },
-  {
-    degree: "Prof. Ingeniería Mecánica",
-    school: "Universidad Los Libertadores, CO",
-    year: "2013"
-  },
-  {
-    degree: "Tecn. Prof. Mecánica Industrial",
-    school: "SENA - Escuela Técnica",
-    year: "2006"
-  }
-];
-
-const certifications = [
-  "Entrenamiento Avanzado en Ventas SSS (México, 2019)",
-  "Juice - Value Based Sales Training (México, 2014)"
-];
-
 export default function Resume() {
   const [activeTab, setActiveTab] = useState("about");
   const [skillFilter, setSkillFilter] = useState("all");
+  const [language, setLanguage] = useState<"es" | "en">("es");
+  
+  const t = translations[language];
 
   const filteredSkills = skillFilter === "all" 
     ? skills 
@@ -159,36 +273,36 @@ export default function Resume() {
 
               <div className="flex-1 text-left">
                 <h1 className="text-5xl font-bold mb-2" data-testid="text-name">
-                  <span className="gradient-text">{profileData.name}</span>
+                  <span className="gradient-text">{t.profileData.name}</span>
                 </h1>
                 <p className="text-2xl text-muted-foreground mb-4" data-testid="text-title">
-                  {profileData.title}
+                  {t.profileData.title}
                 </p>
                 
                 <div className="flex flex-wrap justify-start gap-3 text-sm text-muted-foreground mb-6">
                   <span className="flex items-center gap-1.5">
                     <MapPin className="w-4 h-4" />
-                    {profileData.location}
+                    {t.profileData.location}
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Mail className="w-4 h-4" />
-                    {profileData.email}
+                    {t.profileData.email}
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Phone className="w-4 h-4" />
-                    {profileData.phone}
+                    {t.profileData.phone}
                   </span>
                 </div>
 
                 <div className="flex flex-wrap justify-start gap-3">
                   <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a]" data-testid="button-download-cv">
                     <Download className="w-4 h-4" />
-                    Descargar CV
+                    {t.downloadCV}
                   </Button>
                   <a href="https://wa.me/573160493179" target="_blank" rel="noopener noreferrer">
                     <Button variant="outline" className="gap-2" data-testid="button-contact">
                       <Send className="w-4 h-4" />
-                      Contactar
+                      {t.contact}
                     </Button>
                   </a>
                   <a href="https://www.linkedin.com/in/fabian-bernal-1032" target="_blank" rel="noopener noreferrer" data-testid="button-linkedin" className="flex items-center justify-center h-9 w-9 rounded-md border border-input bg-background hover:bg-accent hover:text-accent-foreground">
@@ -197,9 +311,9 @@ export default function Resume() {
                       <path fill="#fff" d="M20.5,53.5h-8V28h8V53.5z M16.5,24.5c-2.5,0-4.5-2-4.5-4.5s2-4.5,4.5-4.5s4.5,2,4.5,4.5S19,24.5,16.5,24.5z M56.5,53.5h-8V41c0-3-0.1-6.9-4.2-6.9c-4.2,0-4.9,3.3-4.9,6.7v12.8h-8V28h7.7v3.5h0.1c1.1-2,3.7-4.2,7.6-4.2c8.1,0,9.6,5.3,9.6,12.3V53.5z"/>
                     </svg>
                   </a>
-                  <Button variant="outline" className="gap-2" data-testid="button-language">
+                  <Button variant="outline" className="gap-2" data-testid="button-language" onClick={() => setLanguage(language === "es" ? "en" : "es")}>
                     <Globe className="w-4 h-4" />
-                    English
+                    {t.langButton}
                   </Button>
                 </div>
               </div>
@@ -208,11 +322,11 @@ export default function Resume() {
           <div className="glass rounded-xl p-1.5">
             <div className="grid grid-cols-5 gap-1">
               {[
-                { value: "about", icon: User, label: "Sobre Mí" },
-                { value: "experience", icon: Briefcase, label: "Experiencia" },
-                { value: "skills", icon: Code, label: "Habilidades" },
-                { value: "projects", icon: FolderOpen, label: "Proyectos" },
-                { value: "dashboard", icon: LayoutDashboard, label: "Dashboard" }
+                { value: "about", icon: User, label: t.aboutMe },
+                { value: "experience", icon: Briefcase, label: t.experience },
+                { value: "skills", icon: Code, label: t.skills },
+                { value: "projects", icon: FolderOpen, label: t.projects },
+                { value: "dashboard", icon: LayoutDashboard, label: t.dashboard }
               ].map((tab) => (
                 <button
                   key={tab.value}
@@ -254,36 +368,36 @@ export default function Resume() {
 
             <div className="flex-1 text-center">
               <h1 className="text-3xl font-bold mb-2" data-testid="text-name-mobile">
-                <span className="gradient-text">{profileData.name}</span>
+                <span className="gradient-text">{t.profileData.name}</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-4" data-testid="text-title-mobile">
-                {profileData.title}
+                {t.profileData.title}
               </p>
               
               <div className="flex flex-wrap justify-center gap-3 text-sm text-muted-foreground mb-6">
                 <span className="flex items-center gap-1.5">
                   <MapPin className="w-4 h-4" />
-                  {profileData.location}
+                  {t.profileData.location}
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Mail className="w-4 h-4" />
-                  {profileData.email}
+                  {t.profileData.email}
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Phone className="w-4 h-4" />
-                  {profileData.phone}
+                  {t.profileData.phone}
                 </span>
               </div>
 
               <div className="flex flex-wrap justify-center gap-3">
                 <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a]" data-testid="button-download-cv-mobile">
                   <Download className="w-4 h-4" />
-                  Descargar CV
+                  {t.downloadCV}
                 </Button>
                 <a href="https://wa.me/573160493179" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className="gap-2" data-testid="button-contact-mobile">
                     <Send className="w-4 h-4" />
-                    Contactar
+                    {t.contact}
                   </Button>
                 </a>
                 <a href="https://www.linkedin.com/in/fabian-bernal-1032" target="_blank" rel="noopener noreferrer" data-testid="button-linkedin-mobile" className="flex items-center justify-center h-9 w-9 rounded-md border border-input bg-background hover:bg-accent hover:text-accent-foreground">
@@ -292,9 +406,9 @@ export default function Resume() {
                     <path fill="#fff" d="M20.5,53.5h-8V28h8V53.5z M16.5,24.5c-2.5,0-4.5-2-4.5-4.5s2-4.5,4.5-4.5s4.5,2,4.5,4.5S19,24.5,16.5,24.5z M56.5,53.5h-8V41c0-3-0.1-6.9-4.2-6.9c-4.2,0-4.9,3.3-4.9,6.7v12.8h-8V28h7.7v3.5h0.1c1.1-2,3.7-4.2,7.6-4.2c8.1,0,9.6,5.3,9.6,12.3V53.5z"/>
                   </svg>
                 </a>
-                <Button variant="outline" className="gap-2" data-testid="button-language-mobile">
+                <Button variant="outline" className="gap-2" data-testid="button-language-mobile" onClick={() => setLanguage(language === "es" ? "en" : "es")}>
                   <Globe className="w-4 h-4" />
-                  English
+                  {t.langButton}
                 </Button>
               </div>
             </div>
@@ -319,7 +433,7 @@ export default function Resume() {
                 data-testid="tab-about"
               >
                 <User className="w-4 h-4 flex-shrink-0" />
-                <span className="text-[10px] leading-tight text-center">Sobre Mí</span>
+                <span className="text-[10px] leading-tight text-center">{t.aboutMe}</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="experience" 
@@ -327,7 +441,7 @@ export default function Resume() {
                 data-testid="tab-experience"
               >
                 <Briefcase className="w-4 h-4 flex-shrink-0" />
-                <span className="text-[10px] leading-tight text-center">Experiencia</span>
+                <span className="text-[10px] leading-tight text-center">{t.experience}</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="skills" 
@@ -335,7 +449,7 @@ export default function Resume() {
                 data-testid="tab-skills"
               >
                 <Code className="w-4 h-4 flex-shrink-0" />
-                <span className="text-[10px] leading-tight text-center">Habilidades</span>
+                <span className="text-[10px] leading-tight text-center">{t.skills}</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="projects" 
@@ -343,7 +457,7 @@ export default function Resume() {
                 data-testid="tab-projects"
               >
                 <FolderOpen className="w-4 h-4 flex-shrink-0" />
-                <span className="text-[10px] leading-tight text-center">Proyectos</span>
+                <span className="text-[10px] leading-tight text-center">{t.projects}</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="dashboard" 
@@ -351,7 +465,7 @@ export default function Resume() {
                 data-testid="tab-dashboard"
               >
                 <LayoutDashboard className="w-4 h-4 flex-shrink-0" />
-                <span className="text-[10px] leading-tight text-center">Dashboard</span>
+                <span className="text-[10px] leading-tight text-center">{t.dashboard}</span>
               </TabsTrigger>
             </TabsList>
           </motion.div>
@@ -369,20 +483,20 @@ export default function Resume() {
                 <div className="glass rounded-xl md:rounded-2xl p-2 sm:p-3 md:p-6 card-hover min-w-0 w-full" style={{ overflow: 'hidden' }}>
                   <h2 className="text-sm sm:text-base md:text-xl font-semibold mb-2 md:mb-4 flex items-center gap-2">
                     <User className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-[#1557cc] flex-shrink-0" />
-                    Perfil Profesional
+                    {t.profile}
                   </h2>
                   <p className="text-[13px] sm:text-sm md:text-base text-muted-foreground leading-relaxed text-justify w-full whitespace-pre-line" style={{ wordBreak: 'break-word', hyphens: 'auto', overflowWrap: 'break-word' }} data-testid="text-bio">
-                    {profileData.bio}
+                    {t.profileData.bio}
                   </p>
                 </div>
 
                 <div className="glass rounded-2xl p-6 card-hover">
                   <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
                     <GraduationCap className="w-5 h-5 text-[#1557cc]" />
-                    Educación
+                    {t.educationLabel}
                   </h2>
                   <div className="space-y-4">
-                    {education.map((edu, index) => (
+                    {t.educationList.map((edu, index) => (
                       <div key={index} className="border-l-2 border-[#1557cc] pl-4">
                         <h3 className="font-medium" data-testid={`text-degree-${index}`}>{edu.degree}</h3>
                         <p className="text-sm text-muted-foreground">{edu.school}</p>
@@ -396,14 +510,14 @@ export default function Resume() {
 
                   <h2 className="text-xl font-semibold mb-4 mt-14 flex items-center gap-2">
                     <Languages className="w-5 h-5 text-[#1557cc]" />
-                    Idiomas
+                    {t.languages}
                   </h2>
                   <div className="space-y-2">
                     <div className="border-l-2 border-[#1557cc] pl-4">
-                      <h3 className="font-medium" data-testid="text-language-english">Inglés B2 - Intermedio</h3>
+                      <h3 className="font-medium" data-testid="text-language-english">{t.englishLevel}</h3>
                     </div>
                     <div className="border-l-2 border-[#1557cc] pl-4">
-                      <h3 className="font-medium" data-testid="text-language-spanish">Español - Nativo</h3>
+                      <h3 className="font-medium" data-testid="text-language-spanish">{t.spanishLevel}</h3>
                     </div>
                   </div>
                 </div>
@@ -411,10 +525,10 @@ export default function Resume() {
                 <div className="glass rounded-xl md:rounded-2xl p-3 md:p-6 card-hover md:col-span-2">
                   <h2 className="text-base md:text-xl font-semibold mb-3 md:mb-4 flex items-center gap-2">
                     <Award className="w-4 h-4 md:w-5 md:h-5 text-[#1557cc]" />
-                    Certificaciones
+                    {t.certifications}
                   </h2>
                   <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 md:gap-3">
-                    {certifications.map((cert, index) => (
+                    {t.certificationsList.map((cert, index) => (
                       <Badge 
                         key={index} 
                         variant="secondary" 
@@ -437,7 +551,7 @@ export default function Resume() {
                 animate="animate"
                 className="space-y-6"
               >
-                {experiences.map((exp, index) => (
+                {t.experiences.map((exp, index) => (
                   <motion.div
                     key={exp.id}
                     variants={fadeInUp}
@@ -488,7 +602,7 @@ export default function Resume() {
                         className={skillFilter === filter ? "bg-[#1557cc]" : ""}
                         data-testid={`button-filter-${filter}`}
                       >
-                        {filter === "all" ? "Todas" : "Software"}
+                        {filter === "all" ? t.allSkills : t.software}
                       </Button>
                     ))}
                   </div>
@@ -534,7 +648,7 @@ export default function Resume() {
                 animate="animate"
                 className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
               >
-                {projects.map((project) => (
+                {t.projectsList.map((project) => (
                   <motion.div
                     key={project.id}
                     variants={fadeInUp}
@@ -549,7 +663,7 @@ export default function Resume() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-end p-4">
                         <Button size="sm" variant="secondary" className="gap-1.5" data-testid={`button-view-project-${project.id}`}>
-                          Ver Proyecto
+                          {t.viewProject}
                           <ExternalLink className="w-3.5 h-3.5" />
                         </Button>
                       </div>
@@ -593,7 +707,7 @@ export default function Resume() {
                       <div className="p-2 rounded-lg bg-[#1557cc]">
                         <TrendingUp className="w-5 h-5 text-white" />
                       </div>
-                      <span className="text-sm text-muted-foreground">Años Exp.</span>
+                      <span className="text-sm text-muted-foreground">{t.yearsExp}</span>
                     </div>
                     <p className="text-3xl font-bold gradient-text">13+</p>
                   </motion.div>
@@ -608,9 +722,9 @@ export default function Resume() {
                       <div className="p-2 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600">
                         <Building2 className="w-5 h-5 text-white" />
                       </div>
-                      <span className="text-sm text-muted-foreground">Empresas</span>
+                      <span className="text-sm text-muted-foreground">{t.companies}</span>
                     </div>
-                    <p className="text-3xl font-bold text-green-600">{experiences.length}</p>
+                    <p className="text-3xl font-bold text-green-600">{t.experiences.length}</p>
                   </motion.div>
 
                   <motion.div 
@@ -623,9 +737,9 @@ export default function Resume() {
                       <div className="p-2 rounded-lg bg-gradient-to-br from-orange-500 to-amber-600">
                         <Target className="w-5 h-5 text-white" />
                       </div>
-                      <span className="text-sm text-muted-foreground">Proyectos más importantes</span>
+                      <span className="text-sm text-muted-foreground">{t.importantProjects}</span>
                     </div>
-                    <p className="text-3xl font-bold text-orange-600">{projects.length}</p>
+                    <p className="text-3xl font-bold text-orange-600">{t.projectsList.length}</p>
                   </motion.div>
 
                   <motion.div 
@@ -638,7 +752,7 @@ export default function Resume() {
                       <div className="p-2 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-600">
                         <Globe className="w-5 h-5 text-white" />
                       </div>
-                      <span className="text-sm text-muted-foreground">Países</span>
+                      <span className="text-sm text-muted-foreground">{t.countries}</span>
                     </div>
                     <p className="text-3xl font-bold text-blue-600">4</p>
                   </motion.div>
@@ -653,10 +767,10 @@ export default function Resume() {
                   >
                     <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                       <Briefcase className="w-5 h-5 text-[#1557cc]" />
-                      Trayectoria Profesional
+                      {t.profTrajectory}
                     </h3>
                     <div className="space-y-4">
-                      {experiences.map((exp, index) => (
+                      {t.experiences.map((exp, index) => (
                         <div key={exp.id} className="flex items-start gap-3">
                           <div className="w-3 h-3 rounded-full bg-[#1557cc] mt-1.5 flex-shrink-0" />
                           <div className="flex-1">
@@ -679,7 +793,7 @@ export default function Resume() {
                   >
                     <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                       <Code className="w-5 h-5 text-[#1557cc]" />
-                      Dominio de Herramientas
+                      {t.skillsLevel}
                     </h3>
                     <div className="space-y-3">
                       {skills.map((skill, index) => (
@@ -714,7 +828,7 @@ export default function Resume() {
                       Formación
                     </h3>
                     <div className="space-y-3">
-                      {education.map((edu, index) => (
+                      {t.educationList.map((edu, index) => (
                         <div key={index} className="border-l-2 border-[#1557cc] pl-3">
                           <p className="font-medium text-sm">{edu.degree}</p>
                           <p className="text-xs text-muted-foreground">{edu.school}</p>
@@ -735,7 +849,7 @@ export default function Resume() {
                       Certificaciones
                     </h3>
                     <div className="space-y-2">
-                      {certifications.map((cert, index) => (
+                      {t.certificationsList.map((cert, index) => (
                         <div key={index} className="flex items-center gap-2">
                           <div className="w-2 h-2 rounded-full bg-[#1557cc]" />
                           <p className="text-sm">{cert}</p>
@@ -795,10 +909,10 @@ export default function Resume() {
                 >
                   <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                     <FolderOpen className="w-5 h-5 text-[#1557cc]" />
-                    Proyectos Destacados
+                    {t.featuredProjects}
                   </h3>
                   <div className="grid md:grid-cols-3 gap-4">
-                    {projects.map((project, index) => (
+                    {t.projectsList.map((project, index) => (
                       <div key={project.id} className="flex items-start gap-3 p-3 rounded-xl bg-white/50">
                         <img 
                           src={project.image} 
@@ -822,10 +936,10 @@ export default function Resume() {
                 >
                   <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                     <Target className="w-5 h-5 text-[#1557cc]" />
-                    Industrias de Experiencia
+                    {t.industriesLabel}
                   </h3>
                   <div className="flex flex-wrap gap-2">
-                    {["Oil & Gas", "Energía", "Petroquímica", "Alimentos", "Metalmecánica", "Construcción Naval", "Hidroeléctrica"].map((industry, index) => (
+                    {t.industries.map((industry, index) => (
                       <Badge 
                         key={index}
                         className="px-4 py-2 bg-[#1557cc] text-white"
@@ -846,7 +960,7 @@ export default function Resume() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
         >
-          <p>© 2026 {profileData.name}. Diseñado con pasión.</p>
+          <p>© 2026 {t.profileData.name}. {language === "es" ? "Diseñado con pasión." : "Designed with passion."}</p>
         </motion.footer>
       </div>
     </div>

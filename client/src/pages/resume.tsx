@@ -394,9 +394,11 @@ export default function Resume() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="w-40 h-40 rounded-full bg-[#1557cc] flex items-center justify-center text-white text-5xl font-bold shadow-2xl">
-                  NB
-                </div>
+                <img 
+                  src="/attached_assets/image_1768274178602.png" 
+                  alt="Néstor Fabián Bernal"
+                  className="w-40 h-40 rounded-full object-cover shadow-2xl"
+                />
                 <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-400 rounded-full border-4 border-white" />
               </motion.div>
 
@@ -510,9 +512,11 @@ export default function Resume() {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="w-32 h-32 rounded-full bg-[#1557cc] flex items-center justify-center text-white text-4xl font-bold shadow-2xl">
-                NB
-              </div>
+              <img 
+                src="/attached_assets/image_1768274178602.png" 
+                alt="Néstor Fabián Bernal"
+                className="w-32 h-32 rounded-full object-cover shadow-2xl"
+              />
               <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-400 rounded-full border-4 border-white" />
             </motion.div>
 

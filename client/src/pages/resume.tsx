@@ -140,7 +140,7 @@ export default function Resume() {
         <div className="absolute top-1/2 -left-40 w-96 h-96 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-1 sm:px-3 md:px-6 py-4 md:py-12 w-full box-border" style={{ overflowX: 'hidden' }}>
+      <div className="relative max-w-6xl mx-auto px-1 sm:px-3 md:px-6 py-4 md:py-12 w-full box-border">
         <motion.header 
           className="glass rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-10 mb-4 md:mb-8 shadow-xl md:sticky md:top-4 md:z-50"
           initial={{ opacity: 0, y: -20 }}

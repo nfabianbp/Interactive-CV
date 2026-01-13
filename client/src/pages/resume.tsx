@@ -251,16 +251,17 @@ export default function Resume() {
     : skills.filter(s => s.category === skillFilter);
 
   const downloadPDF = () => {
+    const link = document.createElement('a');
     if (language === "es") {
-      const link = document.createElement('a');
       link.href = '/CV_Ing_Nestor_Fabian_Bernal_ES.pdf';
       link.download = 'CV_Ing_Nestor_Fabian_Bernal_ES.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
     } else {
-      generateEnglishPDF();
+      link.href = '/CV_Eng_Nestor_Fabian_Bernal_EN.pdf';
+      link.download = 'CV_Eng_Nestor_Fabian_Bernal_EN.pdf';
     }
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const generateEnglishPDF = () => {

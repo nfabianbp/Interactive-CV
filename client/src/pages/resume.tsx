@@ -140,7 +140,7 @@ export default function Resume() {
         <div className="absolute top-1/2 -left-40 w-96 h-96 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-3 sm:px-4 md:px-6 py-6 md:py-12 overflow-x-hidden">
+      <div className="relative max-w-6xl mx-auto px-2 sm:px-4 md:px-6 py-4 md:py-12" style={{ maxWidth: '100%', overflowX: 'hidden' }}>
         <motion.header 
           className="glass rounded-2xl p-4 md:p-10 mb-6 md:mb-8 shadow-xl"
           initial={{ opacity: 0, y: -20 }}
@@ -260,14 +260,14 @@ export default function Resume() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
                 transition={{ duration: 0.3 }}
-                className="grid md:grid-cols-2 gap-6"
+                className="grid md:grid-cols-2 gap-3 md:gap-6 w-full"
               >
-                <div className="glass rounded-2xl p-4 md:p-6 card-hover overflow-hidden w-full">
-                  <h2 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 flex items-center gap-2">
+                <div className="glass rounded-2xl p-3 md:p-6 card-hover min-w-0" style={{ maxWidth: '100%', overflow: 'hidden' }}>
+                  <h2 className="text-base md:text-xl font-semibold mb-2 md:mb-4 flex items-center gap-2">
                     <User className="w-4 h-4 md:w-5 md:h-5 text-[#1557cc] flex-shrink-0" />
                     Perfil Profesional
                   </h2>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed text-justify break-words overflow-wrap-anywhere w-full" style={{ wordBreak: 'break-word', overflowWrap: 'anywhere' }} data-testid="text-bio">
+                  <p className="text-xs md:text-base text-muted-foreground leading-relaxed md:text-justify" style={{ wordBreak: 'break-word', hyphens: 'auto' }} data-testid="text-bio">
                     {profileData.bio}
                   </p>
                 </div>

@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import hydroelectricImg from "@assets/image_1768258004921.png";
 import dashboardImg from "@assets/stock_images/industrial_process_a_5250e847.jpg";
 import refineryImg from "@assets/stock_images/oil_refinery_pipes_i_d50c23a2.jpg";
 import soporteriaImg from "@assets/image_1768269179998.png";
 import { motion, AnimatePresence } from "framer-motion";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 import { 
   User, Briefcase, Code, FolderOpen, Mail, Phone, MapPin, 
   Linkedin, Github, ExternalLink, GraduationCap, Award,
@@ -241,12 +243,57 @@ export default function Resume() {
   const [activeTab, setActiveTab] = useState("about");
   const [skillFilter, setSkillFilter] = useState("all");
   const [language, setLanguage] = useState<"es" | "en">("es");
+  const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
+  const resumeRef = useRef<HTMLDivElement>(null);
   
   const t = translations[language];
 
   const filteredSkills = skillFilter === "all" 
     ? skills 
     : skills.filter(s => s.category === skillFilter);
+
+  const generatePDF = async () => {
+    if (!resumeRef.current || isGeneratingPDF) return;
+    
+    setIsGeneratingPDF(true);
+    
+    try {
+      const element = resumeRef.current;
+      const canvas = await html2canvas(element, {
+        scale: 2,
+        useCORS: true,
+        logging: false,
+        backgroundColor: '#ffffff'
+      });
+      
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF({
+        orientation: 'portrait',
+        unit: 'mm',
+        format: 'a4'
+      });
+      
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+      const imgWidth = canvas.width;
+      const imgHeight = canvas.height;
+      const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+      const imgX = (pdfWidth - imgWidth * ratio) / 2;
+      const imgY = 0;
+      
+      pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
+      
+      const fileName = language === "es" 
+        ? "CV_Ing_Nestor_Fabian_Bernal_ES.pdf"
+        : "CV_Eng_Nestor_Fabian_Bernal_EN.pdf";
+      
+      pdf.save(fileName);
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+    } finally {
+      setIsGeneratingPDF(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50 overflow-x-hidden">
@@ -295,9 +342,9 @@ export default function Resume() {
                 </div>
 
                 <div className="flex flex-wrap justify-start gap-3">
-                  <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a] cursor-pointer" data-testid="button-download-cv">
+                  <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a] cursor-pointer" data-testid="button-download-cv" onClick={generatePDF} disabled={isGeneratingPDF}>
                     <Download className="w-4 h-4" />
-                    {t.downloadCV}
+                    {isGeneratingPDF ? (language === "es" ? "Generando..." : "Generating...") : t.downloadCV}
                   </Button>
                   <a href="https://wa.me/573160493179" target="_blank" rel="noopener noreferrer">
                     <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a] cursor-pointer" data-testid="button-contact">
@@ -389,9 +436,9 @@ export default function Resume() {
               </div>
 
               <div className="flex flex-wrap justify-center gap-3">
-                <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a] cursor-pointer" data-testid="button-download-cv-mobile">
+                <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a] cursor-pointer" data-testid="button-download-cv-mobile" onClick={generatePDF} disabled={isGeneratingPDF}>
                   <Download className="w-4 h-4" />
-                  {t.downloadCV}
+                  {isGeneratingPDF ? (language === "es" ? "Generando..." : "Generating...") : t.downloadCV}
                 </Button>
                 <a href="https://wa.me/573160493179" target="_blank" rel="noopener noreferrer">
                   <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a] cursor-pointer" data-testid="button-contact-mobile">
@@ -415,7 +462,7 @@ export default function Resume() {
       </div>
 
       {/* Content area */}
-      <div className="relative max-w-6xl mx-auto px-1 sm:px-3 md:px-6 py-4 md:pt-[420px] w-full box-border">
+      <div ref={resumeRef} className="relative max-w-6xl mx-auto px-1 sm:px-3 md:px-6 py-4 md:pt-[420px] w-full box-border">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           {/* Mobile tabs */}
           <motion.div

@@ -434,7 +434,7 @@ export default function Resume() {
                     {t.profileData.location}
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <WhatsAppIcon className="w-4 h-4" />
+                    <Send className="w-4 h-4" />
                     {t.profileData.email}
                   </span>
                   <span className="flex items-center gap-1.5">
@@ -540,7 +540,7 @@ export default function Resume() {
                   {t.profileData.location}
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <WhatsAppIcon className="w-4 h-4" />
+                  <Send className="w-4 h-4" />
                   {t.profileData.email}
                 </span>
                 <span className="flex items-center gap-1.5">

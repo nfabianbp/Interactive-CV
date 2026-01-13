@@ -156,7 +156,7 @@ const translations = {
     industriesLabel: "Industries",
     featuredProjects: "Featured Projects",
     profileData: {
-      name: "Ing. Néstor Fabián Bernal",
+      name: "Eng. Néstor Fabián Bernal",
       title: "Commercial Leader - Industry Consultant",
       location: "Bogotá D.C, Colombia",
       email: "nfabianbp@hotmail.com",

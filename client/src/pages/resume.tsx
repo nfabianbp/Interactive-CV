@@ -143,15 +143,28 @@ export default function Resume() {
       {/* Fixed header and tabs for desktop */}
       <div className="hidden md:block fixed top-0 left-0 right-0 z-50 bg-gradient-to-br from-slate-50/98 via-white/98 to-indigo-50/98 backdrop-blur-md shadow-lg">
         <div className="max-w-6xl mx-auto px-6 py-4">
-          <header className="glass rounded-2xl p-6 shadow-xl mb-4">
-            <div className="flex items-center gap-8">
-              <div className="w-20 h-20 rounded-full bg-[#1557cc] flex items-center justify-center text-white text-2xl font-bold shadow-xl">
-                NB
-              </div>
-              <div className="flex-1">
-                <h1 className="text-3xl font-bold gradient-text">{profileData.name}</h1>
-                <p className="text-lg text-muted-foreground">{profileData.title}</p>
-                <div className="flex gap-4 text-sm text-muted-foreground mt-2">
+          <header className="glass rounded-2xl p-10 shadow-xl mb-4">
+            <div className="flex items-center gap-10">
+              <motion.div 
+                className="relative"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <div className="w-40 h-40 rounded-full bg-[#1557cc] flex items-center justify-center text-white text-5xl font-bold shadow-2xl">
+                  NB
+                </div>
+                <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-400 rounded-full border-4 border-white" />
+              </motion.div>
+
+              <div className="flex-1 text-left">
+                <h1 className="text-5xl font-bold mb-2" data-testid="text-name">
+                  <span className="gradient-text">{profileData.name}</span>
+                </h1>
+                <p className="text-2xl text-muted-foreground mb-4" data-testid="text-title">
+                  {profileData.title}
+                </p>
+                
+                <div className="flex flex-wrap justify-start gap-3 text-sm text-muted-foreground mb-6">
                   <span className="flex items-center gap-1.5">
                     <MapPin className="w-4 h-4" />
                     {profileData.location}
@@ -165,19 +178,23 @@ export default function Resume() {
                     {profileData.phone}
                   </span>
                 </div>
-              </div>
-              <div className="flex gap-2">
-                <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a]">
-                  <Download className="w-4 h-4" />
-                  Descargar CV
-                </Button>
-                <Button variant="outline" className="gap-2">
-                  <Send className="w-4 h-4" />
-                  Contactar
-                </Button>
-                <Button variant="ghost" size="icon">
-                  <Linkedin className="w-5 h-5" />
-                </Button>
+
+                <div className="flex flex-wrap justify-start gap-3">
+                  <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a]" data-testid="button-download-cv">
+                    <Download className="w-4 h-4" />
+                    Descargar CV
+                  </Button>
+                  <Button variant="outline" className="gap-2" data-testid="button-contact">
+                    <Send className="w-4 h-4" />
+                    Contactar
+                  </Button>
+                  <Button variant="ghost" size="icon" data-testid="button-linkedin">
+                    <Linkedin className="w-5 h-5" />
+                  </Button>
+                  <Button variant="ghost" size="icon" data-testid="button-github">
+                    <Github className="w-5 h-5" />
+                  </Button>
+                </div>
               </div>
             </div>
           </header>
@@ -229,10 +246,10 @@ export default function Resume() {
             </motion.div>
 
             <div className="flex-1 text-center">
-              <h1 className="text-3xl font-bold mb-2" data-testid="text-name">
+              <h1 className="text-3xl font-bold mb-2" data-testid="text-name-mobile">
                 <span className="gradient-text">{profileData.name}</span>
               </h1>
-              <p className="text-xl text-muted-foreground mb-4" data-testid="text-title">
+              <p className="text-xl text-muted-foreground mb-4" data-testid="text-title-mobile">
                 {profileData.title}
               </p>
               
@@ -252,18 +269,18 @@ export default function Resume() {
               </div>
 
               <div className="flex flex-wrap justify-center gap-3">
-                <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a]" data-testid="button-download-cv">
+                <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a]" data-testid="button-download-cv-mobile">
                   <Download className="w-4 h-4" />
                   Descargar CV
                 </Button>
-                <Button variant="outline" className="gap-2" data-testid="button-contact">
+                <Button variant="outline" className="gap-2" data-testid="button-contact-mobile">
                   <Send className="w-4 h-4" />
                   Contactar
                 </Button>
-                <Button variant="ghost" size="icon" data-testid="button-linkedin">
+                <Button variant="ghost" size="icon" data-testid="button-linkedin-mobile">
                   <Linkedin className="w-5 h-5" />
                 </Button>
-                <Button variant="ghost" size="icon" data-testid="button-github">
+                <Button variant="ghost" size="icon" data-testid="button-github-mobile">
                   <Github className="w-5 h-5" />
                 </Button>
               </div>
@@ -273,7 +290,7 @@ export default function Resume() {
       </div>
 
       {/* Content area */}
-      <div className="relative max-w-6xl mx-auto px-1 sm:px-3 md:px-6 py-4 md:pt-[280px] w-full box-border">
+      <div className="relative max-w-6xl mx-auto px-1 sm:px-3 md:px-6 py-4 md:pt-[420px] w-full box-border">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           {/* Mobile tabs */}
           <motion.div

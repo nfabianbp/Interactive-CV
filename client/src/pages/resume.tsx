@@ -2,6 +2,7 @@ import { useState } from "react";
 import hydroelectricImg from "@assets/image_1768258004921.png";
 import dashboardImg from "@assets/stock_images/industrial_process_a_5250e847.jpg";
 import refineryImg from "@assets/stock_images/oil_refinery_pipes_i_d50c23a2.jpg";
+import soporteriaImg from "@assets/image_1768269179998.png";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   User, Briefcase, Code, FolderOpen, Mail, Phone, MapPin, 
@@ -87,7 +88,7 @@ const projects = [
   {
     id: 2,
     name: "OPTIPARTNER® Secador",
-    description: "Implementación primera solución digital de optimización de proceso de secado, para secador de emulsiones en planta de resinas MEXICHEM CO.",
+    description: "Implementación de primera solución digital de optimización de proceso de secado en la región, para los secadores de emulsión de la planta de resinas - MEXICHEM CO.",
     image: dashboardImg,
     technologies: ["Solución Digital", "Optimización", "Procesos Industriales"],
     link: "#"
@@ -96,7 +97,7 @@ const projects = [
     id: 3,
     name: "Soportería Modular para Tubería",
     description: "Venta de primer proyecto de soportería modular para tubería de proceso en construcción de buque Oceanográfico desarrollado por COTECMAR CO.",
-    image: refineryImg,
+    image: soporteriaImg,
     technologies: ["Construcción Naval", "Soportería Modular", "Oil & Gas"],
     link: "#"
   }

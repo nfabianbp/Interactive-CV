@@ -140,9 +140,9 @@ export default function Resume() {
         <div className="absolute top-1/2 -left-40 w-96 h-96 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-4 py-8 md:py-12">
+      <div className="relative max-w-6xl mx-auto px-3 sm:px-4 md:px-6 py-6 md:py-12 overflow-x-hidden">
         <motion.header 
-          className="glass rounded-2xl p-6 md:p-10 mb-8 shadow-xl"
+          className="glass rounded-2xl p-4 md:p-10 mb-6 md:mb-8 shadow-xl"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -208,26 +208,46 @@ export default function Resume() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <TabsList className="w-full glass mb-8 p-1.5 h-auto flex-wrap">
-              <TabsTrigger value="about" className="flex-1 gap-2 py-3 data-[state=active]:bg-white data-[state=active]:shadow-md" data-testid="tab-about">
-                <User className="w-4 h-4" />
-                <span className="hidden sm:inline">Sobre Mí</span>
+            <TabsList className="w-full glass mb-6 md:mb-8 p-1 md:p-1.5 h-auto grid grid-cols-5 gap-1">
+              <TabsTrigger 
+                value="about" 
+                className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 py-2 md:py-3 px-1 md:px-3 text-xs md:text-sm font-medium transition-all data-[state=active]:bg-[#1557cc] data-[state=active]:text-white data-[state=active]:shadow-lg rounded-lg" 
+                data-testid="tab-about"
+              >
+                <User className="w-4 h-4 flex-shrink-0" />
+                <span className="text-[10px] md:text-sm leading-tight text-center">Sobre Mí</span>
               </TabsTrigger>
-              <TabsTrigger value="experience" className="flex-1 gap-2 py-3 data-[state=active]:bg-white data-[state=active]:shadow-md" data-testid="tab-experience">
-                <Briefcase className="w-4 h-4" />
-                <span className="hidden sm:inline">Experiencia</span>
+              <TabsTrigger 
+                value="experience" 
+                className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 py-2 md:py-3 px-1 md:px-3 text-xs md:text-sm font-medium transition-all data-[state=active]:bg-[#1557cc] data-[state=active]:text-white data-[state=active]:shadow-lg rounded-lg" 
+                data-testid="tab-experience"
+              >
+                <Briefcase className="w-4 h-4 flex-shrink-0" />
+                <span className="text-[10px] md:text-sm leading-tight text-center">Experiencia</span>
               </TabsTrigger>
-              <TabsTrigger value="skills" className="flex-1 gap-2 py-3 data-[state=active]:bg-white data-[state=active]:shadow-md" data-testid="tab-skills">
-                <Code className="w-4 h-4" />
-                <span className="hidden sm:inline">Habilidades</span>
+              <TabsTrigger 
+                value="skills" 
+                className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 py-2 md:py-3 px-1 md:px-3 text-xs md:text-sm font-medium transition-all data-[state=active]:bg-[#1557cc] data-[state=active]:text-white data-[state=active]:shadow-lg rounded-lg" 
+                data-testid="tab-skills"
+              >
+                <Code className="w-4 h-4 flex-shrink-0" />
+                <span className="text-[10px] md:text-sm leading-tight text-center">Habilidades</span>
               </TabsTrigger>
-              <TabsTrigger value="projects" className="flex-1 gap-2 py-3 data-[state=active]:bg-white data-[state=active]:shadow-md" data-testid="tab-projects">
-                <FolderOpen className="w-4 h-4" />
-                <span className="hidden sm:inline">Proyectos</span>
+              <TabsTrigger 
+                value="projects" 
+                className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 py-2 md:py-3 px-1 md:px-3 text-xs md:text-sm font-medium transition-all data-[state=active]:bg-[#1557cc] data-[state=active]:text-white data-[state=active]:shadow-lg rounded-lg" 
+                data-testid="tab-projects"
+              >
+                <FolderOpen className="w-4 h-4 flex-shrink-0" />
+                <span className="text-[10px] md:text-sm leading-tight text-center">Proyectos</span>
               </TabsTrigger>
-              <TabsTrigger value="dashboard" className="flex-1 gap-2 py-3 data-[state=active]:bg-white data-[state=active]:shadow-md" data-testid="tab-dashboard">
-                <LayoutDashboard className="w-4 h-4" />
-                <span className="hidden sm:inline">Dashboard</span>
+              <TabsTrigger 
+                value="dashboard" 
+                className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2 py-2 md:py-3 px-1 md:px-3 text-xs md:text-sm font-medium transition-all data-[state=active]:bg-[#1557cc] data-[state=active]:text-white data-[state=active]:shadow-lg rounded-lg" 
+                data-testid="tab-dashboard"
+              >
+                <LayoutDashboard className="w-4 h-4 flex-shrink-0" />
+                <span className="text-[10px] md:text-sm leading-tight text-center">Dashboard</span>
               </TabsTrigger>
             </TabsList>
           </motion.div>

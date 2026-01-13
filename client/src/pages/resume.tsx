@@ -250,7 +250,20 @@ export default function Resume() {
     ? skills 
     : skills.filter(s => s.category === skillFilter);
 
-  const generatePDF = () => {
+  const downloadPDF = () => {
+    if (language === "es") {
+      const link = document.createElement('a');
+      link.href = '/CV_Ing_Nestor_Fabian_Bernal_ES.pdf';
+      link.download = 'CV_Ing_Nestor_Fabian_Bernal_ES.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      generateEnglishPDF();
+    }
+  };
+
+  const generateEnglishPDF = () => {
     if (isGeneratingPDF) return;
     
     setIsGeneratingPDF(true);
@@ -343,7 +356,7 @@ export default function Resume() {
       t.projectsList.forEach((project) => {
         addText(`${project.name}`, 11, true);
         addText(project.description, 10);
-        addText(`${language === "es" ? "Tecnologías" : "Technologies"}: ${project.technologies.join(", ")}`, 9, false, [100, 100, 100]);
+        addText(`Technologies: ${project.technologies.join(", ")}`, 9, false, [100, 100, 100]);
         yPos += 2;
       });
       
@@ -353,14 +366,10 @@ export default function Resume() {
       pdf.setTextColor(150, 150, 150);
       pdf.text(`LinkedIn: linkedin.com/in/fabian-bernal-1032 | WhatsApp: +57 316 049 3179`, margin, pdf.internal.pageSize.getHeight() - 10);
       
-      const fileName = language === "es" 
-        ? "CV_Ing_Nestor_Fabian_Bernal_ES.pdf"
-        : "CV_Eng_Nestor_Fabian_Bernal_EN.pdf";
-      
-      pdf.save(fileName);
+      pdf.save("CV_Eng_Nestor_Fabian_Bernal_EN.pdf");
     } catch (error) {
       console.error('Error generating PDF:', error);
-      alert(language === "es" ? "Error al generar PDF. Intente de nuevo." : "Error generating PDF. Please try again.");
+      alert("Error generating PDF. Please try again.");
     } finally {
       setIsGeneratingPDF(false);
     }
@@ -413,7 +422,7 @@ export default function Resume() {
                 </div>
 
                 <div className="flex flex-wrap justify-start gap-3">
-                  <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a] cursor-pointer" data-testid="button-download-cv" onClick={generatePDF} disabled={isGeneratingPDF}>
+                  <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a] cursor-pointer" data-testid="button-download-cv" onClick={downloadPDF} disabled={isGeneratingPDF}>
                     <Download className="w-4 h-4" />
                     {isGeneratingPDF ? (language === "es" ? "Generando..." : "Generating...") : t.downloadCV}
                   </Button>
@@ -507,7 +516,7 @@ export default function Resume() {
               </div>
 
               <div className="flex flex-wrap justify-center gap-3">
-                <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a] cursor-pointer" data-testid="button-download-cv-mobile" onClick={generatePDF} disabled={isGeneratingPDF}>
+                <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a] cursor-pointer" data-testid="button-download-cv-mobile" onClick={downloadPDF} disabled={isGeneratingPDF}>
                   <Download className="w-4 h-4" />
                   {isGeneratingPDF ? (language === "es" ? "Generando..." : "Generating...") : t.downloadCV}
                 </Button>

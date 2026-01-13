@@ -5,6 +5,7 @@ import refineryImg from "@assets/stock_images/oil_refinery_pipes_i_d50c23a2.jpg"
 import soporteriaImg from "@assets/image_1768269179998.png";
 import { motion, AnimatePresence } from "framer-motion";
 import jsPDF from "jspdf";
+import { QRCodeSVG } from "qrcode.react";
 import { 
   User, Briefcase, Code, FolderOpen, Mail, Phone, MapPin, 
   Linkedin, Github, ExternalLink, GraduationCap, Award,
@@ -400,6 +401,18 @@ export default function Resume() {
               </motion.div>
 
               <div className="flex-1 text-left">
+              
+              <div className="absolute top-6 right-6 flex flex-col items-center">
+                <div className="bg-white p-2 rounded-lg shadow-lg">
+                  <QRCodeSVG 
+                    value="https://interactive-cv--nfabianbp.replit.app/" 
+                    size={80}
+                    level="M"
+                    fgColor="#1557cc"
+                  />
+                </div>
+                <span className="text-xs text-muted-foreground mt-1">{language === "es" ? "Escanear" : "Scan"}</span>
+              </div>
                 <h1 className="text-5xl font-bold mb-2" data-testid="text-name">
                   <span className="gradient-text">{t.profileData.name}</span>
                 </h1>
@@ -476,11 +489,21 @@ export default function Resume() {
       {/* Mobile header (scrolls normally) */}
       <div className="md:hidden relative max-w-6xl mx-auto px-1 sm:px-3 py-4 w-full box-border">
         <motion.header 
-          className="glass rounded-xl p-3 sm:p-4 mb-4 shadow-xl"
+          className="glass rounded-xl p-3 sm:p-4 mb-4 shadow-xl relative"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
+          <div className="absolute top-3 right-3 flex flex-col items-center">
+            <div className="bg-white p-1.5 rounded-lg shadow-md">
+              <QRCodeSVG 
+                value="https://interactive-cv--nfabianbp.replit.app/" 
+                size={50}
+                level="M"
+                fgColor="#1557cc"
+              />
+            </div>
+          </div>
           <div className="flex flex-col items-center gap-6">
             <motion.div 
               className="relative"

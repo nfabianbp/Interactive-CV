@@ -140,9 +140,35 @@ export default function Resume() {
         <div className="absolute top-1/2 -left-40 w-96 h-96 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-1 sm:px-3 md:px-6 py-4 md:py-12 w-full box-border">
+      <div className="hidden md:block fixed top-0 left-0 right-0 z-50 bg-gradient-to-br from-slate-50/95 via-white/95 to-indigo-50/95 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto px-6 py-4">
+          <header className="glass rounded-2xl p-6 shadow-xl">
+            <div className="flex items-center gap-6">
+              <div className="w-16 h-16 rounded-full bg-[#1557cc] flex items-center justify-center text-white text-xl font-bold shadow-lg">
+                NB
+              </div>
+              <div className="flex-1">
+                <h1 className="text-2xl font-bold gradient-text">{profileData.name}</h1>
+                <p className="text-sm text-muted-foreground">{profileData.title}</p>
+              </div>
+              <div className="flex gap-2">
+                <Button className="gap-2 bg-[#1557cc] hover:bg-[#1e3a8a]" size="sm">
+                  <Download className="w-4 h-4" />
+                  Descargar CV
+                </Button>
+                <Button variant="outline" size="sm" className="gap-2">
+                  <Send className="w-4 h-4" />
+                  Contactar
+                </Button>
+              </div>
+            </div>
+          </header>
+        </div>
+      </div>
+
+      <div className="relative max-w-6xl mx-auto px-1 sm:px-3 md:px-6 py-4 md:py-12 md:pt-32 w-full box-border">
         <motion.header 
-          className="glass rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-10 mb-4 md:mb-8 shadow-xl md:sticky md:top-4 md:z-50"
+          className="glass rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-10 mb-4 md:mb-8 shadow-xl md:hidden"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}

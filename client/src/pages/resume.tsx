@@ -79,7 +79,7 @@ const projects = [
   {
     id: 1,
     name: "Refrigeración Generación de Energía",
-    description: "Reemplazo equipos de intercambio de calor para refrigeración turbinas de generación de energía de hidroeléctrica Amoya CO - ISAGEN.",
+    description: "Remplazo e implementación de intercambiadores de calor de última generación para refrigeración óptima de las turbinas de generación de energía en hidroeléctrica Amoya CO.",
     image: hydroelectricImg,
     technologies: ["Energía", "Intercambio de Calor", "Hidroeléctrica"],
     link: "#"

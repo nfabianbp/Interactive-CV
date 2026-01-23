@@ -103,7 +103,7 @@ const translations = {
       {
         id: 1,
         name: "Refrigeración Generación de Energía",
-        description: "Remplazo e implementación de intercambiadores de calor de última generación para refrigeración óptima de las turbinas de generación de energía en hidroeléctrica Amoya CO.",
+        description: "Remplazo e implementación de intercambiadores de calor de última generación para refrigeración óptima de las turbinas de generación de energía en importante hidroeléctrica en Colombia.",
         image: hydroelectricImg,
         technologies: ["Energía", "Intercambio de Calor", "Hidroeléctrica"],
         link: "#"
@@ -201,7 +201,7 @@ const translations = {
       {
         id: 1,
         name: "Power Generation Cooling",
-        description: "Replacement and implementation of state-of-the-art heat exchangers for optimal cooling of power generation turbines at Amoya Hydroelectric Plant, CO.",
+        description: "Replacement and implementation of state-of-the-art heat exchangers for optimal cooling of power generation turbines at an important hydroelectric plant in Colombia.",
         image: hydroelectricImg,
         technologies: ["Energy", "Heat Exchange", "Hydroelectric"],
         link: "#"

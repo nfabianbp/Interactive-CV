@@ -119,7 +119,7 @@ const translations = {
       {
         id: 3,
         name: "Soportería Modular para Tubería",
-        description: "Venta de primer proyecto de soportería modular para tubería de proceso en construcción de buque Oceanográfico desarrollado por COTECMAR CO.",
+        description: "Venta de primer proyecto de soportería modular para tubería de proceso en construcción de buque Oceanográfico desarrollado en la región.",
         image: soporteriaImg,
         technologies: ["Construcción Naval", "Soportería Modular", "Oil & Gas"],
         link: "#"
@@ -217,7 +217,7 @@ const translations = {
       {
         id: 3,
         name: "Modular Pipe Support System",
-        description: "Sale of the first modular pipe support project for process piping in the construction of an Oceanographic vessel developed by COTECMAR CO.",
+        description: "Sale of the first modular pipe support project for process piping in the construction of an Oceanographic vessel developed in the region.",
         image: soporteriaImg,
         technologies: ["Naval Construction", "Modular Supports", "Oil & Gas"],
         link: "#"

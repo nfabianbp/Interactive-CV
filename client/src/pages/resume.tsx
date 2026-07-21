@@ -408,20 +408,20 @@ export default function Resume() {
 
       {/* Fixed header and tabs for desktop */}
       <div className="hidden md:block fixed top-0 left-0 right-0 z-50 bg-gradient-to-br from-slate-50/98 via-white/98 to-indigo-50/98 backdrop-blur-md shadow-lg">
-        <div className="max-w-6xl mx-auto px-6 py-4">
-          <header className="glass rounded-2xl p-10 shadow-xl mb-4 relative">
-            <div className="absolute top-1/2 -translate-y-1/2 right-8 flex flex-col items-center">
-              <div className="bg-white p-2 rounded-lg shadow-lg">
+        <div className="max-w-6xl mx-auto px-4 py-2">
+          <header className="glass rounded-2xl p-6 shadow-xl mb-3 relative">
+            <div className="absolute top-1/2 -translate-y-1/2 right-6 flex flex-col items-center">
+              <div className="bg-white p-1.5 rounded-lg shadow-lg">
                 <QRCodeSVG 
-                  value="https://interactive-cv--nfabianbp.replit.app/" 
-                  size={96}
+                  value="https://wa.me/573160493179" 
+                  size={72}
                   level="M"
                   fgColor="#1557cc"
                 />
               </div>
-              <span className="text-xs text-muted-foreground mt-1">{language === "es" ? "Escanear" : "Scan"}</span>
+              <span className="text-xs text-muted-foreground mt-1">{language === "es" ? "Contactar" : "Contact"}</span>
             </div>
-            <div className="flex items-center gap-10 pr-32">
+            <div className="flex items-center gap-6 pr-24">
               <motion.div 
                 className="relative"
                 whileHover={{ scale: 1.05 }}
@@ -430,20 +430,20 @@ export default function Resume() {
                 <img 
                   src="/profile-photo.png" 
                   alt="Néstor Fabián Bernal"
-                  className="w-40 h-40 rounded-full object-cover shadow-2xl"
+                  className="w-28 h-28 rounded-full object-cover shadow-2xl"
                 />
-                <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-400 rounded-full border-4 border-white" />
+                <div className="absolute -bottom-1.5 -right-1.5 w-6 h-6 bg-green-400 rounded-full border-4 border-white" />
               </motion.div>
 
               <div className="flex-1 text-left">
-                <h1 className="text-5xl font-bold mb-2" data-testid="text-name">
+                <h1 className="text-3xl font-bold mb-1" data-testid="text-name">
                   <span className="gradient-text">{t.profileData.name}</span>
                 </h1>
-                <p className="text-2xl text-muted-foreground mb-4" data-testid="text-title">
+                <p className="text-lg text-muted-foreground mb-2" data-testid="text-title">
                   {t.profileData.title}
                 </p>
                 
-                <div className="flex flex-wrap justify-start gap-3 text-sm text-muted-foreground mb-6">
+                <div className="flex flex-wrap justify-start gap-2 text-sm text-muted-foreground mb-3">
                   <span className="flex items-center gap-1.5">
                     <MapPin className="w-4 h-4" />
                     {t.profileData.location}
@@ -520,7 +520,7 @@ export default function Resume() {
           <div className="absolute top-3 right-3 flex flex-col items-center">
             <div className="bg-white p-1.5 rounded-lg shadow-md">
               <QRCodeSVG 
-                value="https://interactive-cv--nfabianbp.replit.app/" 
+                value="https://wa.me/573160493179" 
                 size={50}
                 level="M"
                 fgColor="#1557cc"

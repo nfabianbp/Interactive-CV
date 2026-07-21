@@ -79,8 +79,8 @@ const translations = {
         company: "DAIKIN COLOMBIA SAS",
         role: "Solution Sales Engineer",
         period: "Abril 2026 - Actual",
-        description: "",
-        technologies: ["Ventas de Soluciones", "Estrategia Comercial", "HVAC", "Ingeniería de Ventas"]
+        description: "Lidero la venta consultiva de soluciones integrales en refrigeración industrial, sistemas HVAC, generación de agua helada y caliente, y filtración de agua y aire, dirigida a clientes de los segmentos químico y petroquímico, identificando necesidades técnicas y diseñando propuestas de valor alineadas con los requerimientos operativos y normativos de cada proyecto.\n\nGestiono el ciclo comercial completo, desde la prospección y diagnóstico técnico hasta la elaboración de ofertas, negociación y cierre de contratos, articulando equipos de ingeniería, soporte técnico y logística para garantizar soluciones eficientes, confiables y de alto desempeño.\n\nDesarrolo y fortalezco relaciones estratégicas con clientes clave en la industria, posicionando el portafolio de soluciones de Daikin como referente técnico en proyectos de alta exigencia, contribuyendo al crecimiento de la participación de mercado y al cumplimiento de los objetivos comerciales de la compañía.",
+        technologies: ["Ventas de Soluciones", "HVAC", "Refrigeración Industrial", "Agua Helada", "Filtración", "Petroquímica"]
       },
       {
         id: 2,
@@ -185,8 +185,8 @@ const translations = {
         company: "DAIKIN COLOMBIA SAS",
         role: "Solution Sales Engineer",
         period: "April 2026 - Present",
-        description: "",
-        technologies: ["Solution Sales", "Commercial Strategy", "HVAC", "Sales Engineering"]
+        description: "Lead consultative sales of integrated solutions in industrial refrigeration, HVAC systems, chilled and hot water generation, and water and air filtration, targeting clients in the chemical and petrochemical segments, identifying technical needs and designing value proposals aligned with the operational and regulatory requirements of each project.\n\nManage the full commercial cycle, from prospecting and technical diagnosis through proposal development, negotiation, and contract closing, coordinating engineering, technical support, and logistics teams to ensure efficient, reliable, and high-performance solutions.\n\nDevelop and strengthen strategic relationships with key industry clients, positioning Daikin's solution portfolio as a technical benchmark in demanding projects, contributing to market share growth and the achievement of the company's commercial objectives.",
+        technologies: ["Solution Sales", "HVAC", "Industrial Refrigeration", "Chilled Water", "Filtration", "Petrochemical"]
       },
       {
         id: 2,

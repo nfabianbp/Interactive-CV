@@ -6,6 +6,7 @@ import soporteriaImg from "@assets/image_1768269179998.png";
 import { motion, AnimatePresence } from "framer-motion";
 import jsPDF from "jspdf";
 import { QRCodeSVG } from "qrcode.react";
+import QRCode from "qrcode";
 import { 
   User, Briefcase, Code, FolderOpen, Phone, MapPin, Mail,
   Linkedin, Github, ExternalLink, GraduationCap, Award,
@@ -281,14 +282,15 @@ export default function Resume() {
     if (isGeneratingPDF) return;
     setIsGeneratingPDF(true);
 
-    const buildPDF = (photoDataUrl: string | null) => {
+    const buildPDF = (photoDataUrl: string | null, qrDataUrl: string | null) => {
       try {
         const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
 
         const pageWidth = pdf.internal.pageSize.getWidth();
         const pageHeight = pdf.internal.pageSize.getHeight();
         const margin = 20;
-        const photoSize = 38;
+        const photoSize = 35;
+        const qrSize = 28;
         const fullContentWidth = pageWidth - margin * 2;
         let contentWidth = fullContentWidth;
         let yPos = margin;
@@ -319,13 +321,32 @@ export default function Resume() {
           contentWidth = fullContentWidth;
         };
 
-        // Photo on the right side of header
+        // Right side: photo + QR stacked vertically
+        const rightColWidth = photoSize + 4;
         if (photoDataUrl) {
           pdf.addImage(photoDataUrl, 'PNG', pageWidth - margin - photoSize, margin, photoSize, photoSize);
-          contentWidth = fullContentWidth - photoSize - 8;
+        }
+        if (qrDataUrl) {
+          const qrX = pageWidth - margin - qrSize;
+          const qrY = margin + (photoDataUrl ? photoSize + 3 : 0);
+          // White background box
+          pdf.setFillColor(255, 255, 255);
+          pdf.setDrawColor(21, 87, 204);
+          pdf.setLineWidth(0.3);
+          pdf.roundedRect(qrX - 1, qrY - 1, qrSize + 2, qrSize + 2, 1, 1, 'FD');
+          pdf.addImage(qrDataUrl, 'PNG', qrX, qrY, qrSize, qrSize);
+          // "Contactar / Contact" label below QR
+          pdf.setFontSize(7);
+          pdf.setFont("helvetica", "normal");
+          pdf.setTextColor(21, 87, 204);
+          const label = language === "es" ? "Contactar" : "Contact";
+          pdf.text(label, qrX + qrSize / 2, qrY + qrSize + 4, { align: "center" });
         }
 
-        // Header text (left side, respecting photo space)
+        // Header text — leave space for photo+QR column
+        contentWidth = fullContentWidth - rightColWidth - 6;
+
+        // Header text (left side, respecting photo+QR space)
         addText(t.profileData.name, 22, true, [21, 87, 204]);
         addText(t.profileData.title, 13, false, [100, 100, 100]);
         yPos += 2;
@@ -334,7 +355,8 @@ export default function Resume() {
 
         // Restore full width after header
         contentWidth = fullContentWidth;
-        if (photoDataUrl) yPos = Math.max(yPos, margin + photoSize + 6);
+        const rightColHeight = photoSize + (qrDataUrl ? qrSize + 8 : 0);
+        yPos = Math.max(yPos, margin + rightColHeight + 4);
 
         // Profile
         addSection(t.profile);
@@ -376,7 +398,10 @@ export default function Resume() {
         addSection(t.industriesLabel);
         addText(t.industries.join(", "), 10);
 
-        // Languages
+        // Languages — force new page
+        pdf.addPage();
+        yPos = margin;
+        contentWidth = fullContentWidth;
         addSection(t.languages);
         addText(`${t.spanishLevel}`, 10);
         addText(`${t.englishLevel}`, 10);
@@ -416,27 +441,38 @@ export default function Resume() {
       }
     };
 
-    // Load profile photo as circular PNG via canvas, then build PDF
-    const img = new window.Image();
-    img.crossOrigin = 'anonymous';
-    img.onload = () => {
-      try {
-        const size = Math.min(img.width, img.height);
-        const canvas = document.createElement('canvas');
-        canvas.width = size;
-        canvas.height = size;
-        const ctx = canvas.getContext('2d')!;
-        ctx.beginPath();
-        ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
-        ctx.clip();
-        ctx.drawImage(img, 0, 0, size, size);
-        buildPDF(canvas.toDataURL('image/png'));
-      } catch {
-        buildPDF(null);
-      }
-    };
-    img.onerror = () => buildPDF(null);
-    img.src = '/profile-photo.png';
+    // Load photo and QR in parallel, then build PDF
+    const loadPhoto = (): Promise<string | null> => new Promise((resolve) => {
+      const img = new window.Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => {
+        try {
+          const size = Math.min(img.width, img.height);
+          const canvas = document.createElement('canvas');
+          canvas.width = size;
+          canvas.height = size;
+          const ctx = canvas.getContext('2d')!;
+          ctx.beginPath();
+          ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+          ctx.clip();
+          ctx.drawImage(img, 0, 0, size, size);
+          resolve(canvas.toDataURL('image/png'));
+        } catch { resolve(null); }
+      };
+      img.onerror = () => resolve(null);
+      img.src = '/profile-photo.png';
+    });
+
+    const loadQR = (): Promise<string | null> =>
+      QRCode.toDataURL('https://wa.me/573160493179', {
+        width: 200,
+        margin: 1,
+        color: { dark: '#1557cc', light: '#ffffff' }
+      }).catch(() => null);
+
+    Promise.all([loadPhoto(), loadQR()]).then(([photoDataUrl, qrDataUrl]) => {
+      buildPDF(photoDataUrl, qrDataUrl);
+    });
   };
 
   return (

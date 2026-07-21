@@ -279,117 +279,164 @@ export default function Resume() {
 
   const generateDynamicPDF = () => {
     if (isGeneratingPDF) return;
-    
     setIsGeneratingPDF(true);
-    
-    try {
-      const pdf = new jsPDF({
-        orientation: 'portrait',
-        unit: 'mm',
-        format: 'a4'
-      });
-      
-      const pageWidth = pdf.internal.pageSize.getWidth();
-      const margin = 20;
-      const contentWidth = pageWidth - (margin * 2);
-      let yPos = margin;
-      
-      const addText = (text: string, fontSize: number, isBold: boolean = false, color: number[] = [0, 0, 0]) => {
-        pdf.setFontSize(fontSize);
-        pdf.setFont("helvetica", isBold ? "bold" : "normal");
-        pdf.setTextColor(color[0], color[1], color[2]);
-        const lines = pdf.splitTextToSize(text, contentWidth);
-        
-        if (yPos + (lines.length * fontSize * 0.4) > pdf.internal.pageSize.getHeight() - margin) {
-          pdf.addPage();
-          yPos = margin;
+
+    const buildPDF = (photoDataUrl: string | null) => {
+      try {
+        const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+        const margin = 20;
+        const photoSize = 38;
+        const fullContentWidth = pageWidth - margin * 2;
+        let contentWidth = fullContentWidth;
+        let yPos = margin;
+
+        const addText = (text: string, fontSize: number, isBold = false, color = [0, 0, 0]) => {
+          if (!text) return;
+          pdf.setFontSize(fontSize);
+          pdf.setFont("helvetica", isBold ? "bold" : "normal");
+          pdf.setTextColor(color[0], color[1], color[2]);
+          const lines = pdf.splitTextToSize(text, contentWidth);
+          if (yPos + lines.length * fontSize * 0.4 > pageHeight - margin) {
+            pdf.addPage();
+            yPos = margin;
+            contentWidth = fullContentWidth;
+          }
+          pdf.text(lines, margin, yPos);
+          yPos += lines.length * fontSize * 0.4 + 2;
+        };
+
+        const addSection = (title: string) => {
+          yPos += 5;
+          pdf.setDrawColor(21, 87, 204);
+          pdf.setLineWidth(0.5);
+          pdf.line(margin, yPos, pageWidth - margin, yPos);
+          yPos += 7;
+          addText(title, 14, true, [21, 87, 204]);
+          yPos += 2;
+          contentWidth = fullContentWidth;
+        };
+
+        // Photo on the right side of header
+        if (photoDataUrl) {
+          pdf.addImage(photoDataUrl, 'PNG', pageWidth - margin - photoSize, margin, photoSize, photoSize);
+          contentWidth = fullContentWidth - photoSize - 8;
         }
-        
-        pdf.text(lines, margin, yPos);
-        yPos += lines.length * fontSize * 0.4 + 2;
-      };
-      
-      const addSection = (title: string) => {
-        yPos += 5;
-        pdf.setDrawColor(21, 87, 204);
-        pdf.setLineWidth(0.5);
-        pdf.line(margin, yPos, pageWidth - margin, yPos);
-        yPos += 7;
-        addText(title, 14, true, [21, 87, 204]);
+
+        // Header text (left side, respecting photo space)
+        addText(t.profileData.name, 22, true, [21, 87, 204]);
+        addText(t.profileData.title, 13, false, [100, 100, 100]);
         yPos += 2;
-      };
-      
-      // Header
-      addText(t.profileData.name, 24, true, [21, 87, 204]);
-      addText(t.profileData.title, 14, false, [100, 100, 100]);
-      yPos += 3;
-      addText(`${t.profileData.location} | ${t.profileData.email} | ${t.profileData.phone}`, 10, false, [80, 80, 80]);
-      
-      // Profile
-      addSection(t.profile);
-      addText(t.profileData.bio.replace(/\n\n/g, ' '), 10);
-      
-      // Experience
-      addSection(t.experience);
-      t.experiences.forEach((exp) => {
-        addText(`${exp.company}`, 12, true);
-        addText(`${exp.role}`, 11, false, [21, 87, 204]);
-        addText(`${exp.period}`, 10, false, [100, 100, 100]);
-        addText(exp.description.replace(/\n\n/g, ' '), 10);
-        yPos += 3;
-      });
-      
-      // Education
-      addSection(t.educationLabel);
-      t.educationList.forEach((edu) => {
-        addText(`${edu.degree} - ${edu.school} (${edu.year})`, 10);
-      });
-      
-      // Certifications
-      addSection(t.certifications);
-      t.certificationsList.forEach((cert) => {
-        addText(`• ${cert}`, 10);
-      });
-      
-      // Skills
-      addSection(t.skills);
-      const skillNames = skills.map(s => s.name).join(", ");
-      addText(skillNames, 10);
-      
-      // Industries
-      addSection(t.industriesLabel);
-      addText(t.industries.join(", "), 10);
-      
-      // Languages
-      addSection(t.languages);
-      addText(`${t.spanishLevel}`, 10);
-      addText(`${t.englishLevel}`, 10);
-      
-      // Projects
-      addSection(t.projects);
-      t.projectsList.forEach((project) => {
-        addText(`${project.name}`, 11, true);
-        addText(project.description, 10);
-        addText(`Technologies: ${project.technologies.join(", ")}`, 9, false, [100, 100, 100]);
-        yPos += 2;
-      });
-      
-      // Footer
-      yPos += 10;
-      pdf.setFontSize(8);
-      pdf.setTextColor(150, 150, 150);
-      pdf.text(`LinkedIn: linkedin.com/in/fabian-bernal-1032 | WhatsApp: +57 316 049 3179`, margin, pdf.internal.pageSize.getHeight() - 10);
-      
-      const filename = language === "es" 
-        ? "CV_Ing_Nestor_Fabian_Bernal_ES.pdf" 
-        : "CV_Eng_Nestor_Fabian_Bernal_EN.pdf";
-      pdf.save(filename);
-    } catch (error) {
-      console.error('Error generating PDF:', error);
-      alert("Error generating PDF. Please try again.");
-    } finally {
-      setIsGeneratingPDF(false);
-    }
+        addText(`${t.profileData.location}`, 10, false, [80, 80, 80]);
+        addText(`${t.profileData.email}  |  ${t.profileData.phone}`, 10, false, [80, 80, 80]);
+
+        // Restore full width after header
+        contentWidth = fullContentWidth;
+        if (photoDataUrl) yPos = Math.max(yPos, margin + photoSize + 6);
+
+        // Profile
+        addSection(t.profile);
+        addText(t.profileData.bio.replace(/\n\n/g, ' '), 10);
+
+        // Experience
+        addSection(t.experience);
+        t.experiences.forEach((exp, index) => {
+          // Force new page before HILTI (index 2)
+          if (index === 2) {
+            pdf.addPage();
+            yPos = margin;
+            contentWidth = fullContentWidth;
+          }
+          addText(`${exp.company}`, 12, true);
+          addText(`${exp.role.replace(/\n/g, ' ')}`, 11, false, [21, 87, 204]);
+          addText(`${exp.period}`, 10, false, [100, 100, 100]);
+          if (exp.description) addText(exp.description.replace(/\n\n/g, ' '), 10);
+          yPos += 3;
+        });
+
+        // Education
+        addSection(t.educationLabel);
+        t.educationList.forEach((edu) => {
+          addText(`${edu.degree} - ${edu.school} (${edu.year})`, 10);
+        });
+
+        // Certifications
+        addSection(t.certifications);
+        t.certificationsList.forEach((cert) => {
+          addText(`• ${cert}`, 10);
+        });
+
+        // Skills
+        addSection(t.skills);
+        addText(skills.map(s => s.name).join(", "), 10);
+
+        // Industries
+        addSection(t.industriesLabel);
+        addText(t.industries.join(", "), 10);
+
+        // Languages
+        addSection(t.languages);
+        addText(`${t.spanishLevel}`, 10);
+        addText(`${t.englishLevel}`, 10);
+
+        // Projects
+        addSection(t.projects);
+        t.projectsList.forEach((project) => {
+          addText(`${project.name}`, 11, true);
+          addText(project.description, 10);
+          const techLabel = language === "es" ? "Tecnologías" : "Technologies";
+          addText(`${techLabel}: ${project.technologies.join(", ")}`, 9, false, [100, 100, 100]);
+          yPos += 2;
+        });
+
+        // Footer on every page
+        const totalPages = (pdf as any).internal.getNumberOfPages();
+        for (let i = 1; i <= totalPages; i++) {
+          pdf.setPage(i);
+          pdf.setFontSize(8);
+          pdf.setTextColor(150, 150, 150);
+          pdf.text(
+            `LinkedIn: linkedin.com/in/fabian-bernal-1032  |  WhatsApp: +57 316 049 3179`,
+            margin,
+            pageHeight - 10
+          );
+        }
+
+        const filename = language === "es"
+          ? "CV_Ing_Nestor_Fabian_Bernal_ES.pdf"
+          : "CV_Eng_Nestor_Fabian_Bernal_EN.pdf";
+        pdf.save(filename);
+      } catch (error) {
+        console.error('Error generating PDF:', error);
+        alert(language === "es" ? "Error al generar el PDF. Por favor intente de nuevo." : "Error generating PDF. Please try again.");
+      } finally {
+        setIsGeneratingPDF(false);
+      }
+    };
+
+    // Load profile photo as circular PNG via canvas, then build PDF
+    const img = new window.Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      try {
+        const size = Math.min(img.width, img.height);
+        const canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext('2d')!;
+        ctx.beginPath();
+        ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+        ctx.clip();
+        ctx.drawImage(img, 0, 0, size, size);
+        buildPDF(canvas.toDataURL('image/png'));
+      } catch {
+        buildPDF(null);
+      }
+    };
+    img.onerror = () => buildPDF(null);
+    img.src = '/profile-photo.png';
   };
 
   return (

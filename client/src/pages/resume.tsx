@@ -291,20 +291,23 @@ export default function Resume() {
         const margin = 20;
         const photoSize = 35;
         const qrSize = 14;
-        const rightColWidth = photoSize + 5;
+        const gap = 3;
+        // Layout: QR left of photo, both on right side of header
+        const rightColWidth = qrSize + gap + photoSize + 5;
+        const photoX = pageWidth - margin - photoSize;
+        const qrX = photoX - gap - qrSize;
+        const qrY = margin + (photoSize - qrSize) / 2; // vertically centered with photo
+        const photoY = margin;
+
         const fullContentWidth = pageWidth - margin * 2;
         let contentWidth = fullContentWidth;
         let yPos = margin;
 
-        // Right column X anchor (photo is the widest element)
-        const rightX = pageWidth - margin - photoSize;
-        // QR centered above photo
-        const qrX = rightX + (photoSize - qrSize) / 2;
-        const qrY = margin;
-        const labelHeight = 5;
-        const photoY = qrY + qrSize + labelHeight + 2;
-
-        // Draw QR above photo
+        // Draw photo on the right
+        if (photoDataUrl) {
+          pdf.addImage(photoDataUrl, 'PNG', photoX, photoY, photoSize, photoSize);
+        }
+        // Draw QR to the left of photo, vertically centered
         if (qrDataUrl) {
           pdf.setFillColor(255, 255, 255);
           pdf.setDrawColor(21, 87, 204);
@@ -317,12 +320,8 @@ export default function Resume() {
           const label = language === "es" ? "Contactar" : "Contact";
           pdf.text(label, qrX + qrSize / 2, qrY + qrSize + 3.5, { align: "center" });
         }
-        // Draw photo below QR
-        if (photoDataUrl) {
-          pdf.addImage(photoDataUrl, 'PNG', rightX, photoY, photoSize, photoSize);
-        }
 
-        // Helper: justify a single line (distribute words across contentWidth)
+        // Helper: justify a single line (distribute words to fill contentWidth)
         const justifyLine = (line: string, x: number, y: number) => {
           const words = line.trim().split(/\s+/);
           if (words.length <= 1) { pdf.text(line, x, y); return; }
@@ -332,13 +331,15 @@ export default function Resume() {
           words.forEach(w => { pdf.text(w, cx, y); cx += pdf.getTextWidth(w) + spacing; });
         };
 
-        const addText = (text: string, fontSize: number, isBold = false, color = [0, 0, 0], justify = false) => {
+        // lineGap: extra space after each line. Use tight=true for minimum spacing.
+        const addText = (text: string, fontSize: number, isBold = false, color = [0, 0, 0], justify = false, tight = false) => {
           if (!text) return;
           pdf.setFontSize(fontSize);
           pdf.setFont("helvetica", isBold ? "bold" : "normal");
           pdf.setTextColor(color[0], color[1], color[2]);
           const lines = pdf.splitTextToSize(text, contentWidth);
-          if (yPos + lines.length * fontSize * 0.4 > pageHeight - margin) {
+          const lineH = fontSize * (tight ? 0.33 : 0.4) + (tight ? 0.2 : 1);
+          if (yPos + lines.length * lineH > pageHeight - margin) {
             pdf.addPage();
             yPos = margin;
             contentWidth = fullContentWidth;
@@ -348,50 +349,50 @@ export default function Resume() {
               const isLast = i === lines.length - 1;
               if (!isLast) justifyLine(line, margin, yPos);
               else pdf.text(line, margin, yPos);
-              yPos += fontSize * 0.4 + 1.5;
+              yPos += lineH;
             });
-            yPos += 0.5;
           } else {
             pdf.text(lines, margin, yPos);
-            yPos += lines.length * fontSize * 0.4 + 2;
+            yPos += lines.length * lineH;
           }
+          yPos += tight ? 0.3 : 1;
         };
 
-        // Justified multi-paragraph text (splits on \n\n)
+        // Justified multi-paragraph text (splits on \n\n), tight spacing
         const addJustifiedParagraphs = (text: string, fontSize: number) => {
           text.split('\n\n').filter(Boolean).forEach((para, pi, arr) => {
-            addText(para.replace(/\n/g, ' '), fontSize, false, [0, 0, 0], true);
-            if (pi < arr.length - 1) yPos += 1;
+            addText(para.replace(/\n/g, ' '), fontSize, false, [0, 0, 0], true, true);
+            if (pi < arr.length - 1) yPos += 0.5;
           });
         };
 
         const addSection = (title: string) => {
-          yPos += 5;
+          yPos += 4;
           pdf.setDrawColor(21, 87, 204);
           pdf.setLineWidth(0.5);
           pdf.line(margin, yPos, pageWidth - margin, yPos);
-          yPos += 7;
+          yPos += 6;
           addText(title, 14, true, [21, 87, 204]);
-          yPos += 2;
+          yPos += 1;
           contentWidth = fullContentWidth;
         };
 
-        // Header text — leave space for right column (QR + photo stacked)
-        contentWidth = fullContentWidth - rightColWidth - 4;
+        // Header text — leave space for QR + photo column on the right
+        contentWidth = fullContentWidth - rightColWidth - 2;
 
         addText(t.profileData.name, 22, true, [21, 87, 204]);
         addText(t.profileData.title, 13, false, [100, 100, 100]);
-        yPos += 2;
+        yPos += 1;
         addText(`${t.profileData.location}`, 10, false, [80, 80, 80]);
         addText(`${t.profileData.email}  |  ${t.profileData.phone}`, 10, false, [80, 80, 80]);
 
-        // Restore full width after header — clear past photo bottom
+        // Restore full width — clear past photo bottom
         contentWidth = fullContentWidth;
-        yPos = Math.max(yPos, photoY + photoSize + 6);
+        yPos = Math.max(yPos, photoY + photoSize + 5);
 
-        // Profile
+        // Profile — justified + tight spacing
         addSection(t.profile);
-        addText(t.profileData.bio.replace(/\n\n/g, ' '), 10);
+        addJustifiedParagraphs(t.profileData.bio, 10);
 
         // Experience
         addSection(t.experience);

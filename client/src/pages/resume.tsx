@@ -291,13 +291,48 @@ export default function Resume() {
         const margin = 20;
         const photoSize = 35;
         const qrSize = 14;
-        const gap = 3;
-        const rightColWidth = photoSize + gap + qrSize + 4;
+        const rightColWidth = photoSize + 5;
         const fullContentWidth = pageWidth - margin * 2;
         let contentWidth = fullContentWidth;
         let yPos = margin;
 
-        const addText = (text: string, fontSize: number, isBold = false, color = [0, 0, 0]) => {
+        // Right column X anchor (photo is the widest element)
+        const rightX = pageWidth - margin - photoSize;
+        // QR centered above photo
+        const qrX = rightX + (photoSize - qrSize) / 2;
+        const qrY = margin;
+        const labelHeight = 5;
+        const photoY = qrY + qrSize + labelHeight + 2;
+
+        // Draw QR above photo
+        if (qrDataUrl) {
+          pdf.setFillColor(255, 255, 255);
+          pdf.setDrawColor(21, 87, 204);
+          pdf.setLineWidth(0.3);
+          pdf.roundedRect(qrX - 1, qrY - 1, qrSize + 2, qrSize + 2, 1, 1, 'FD');
+          pdf.addImage(qrDataUrl, 'PNG', qrX, qrY, qrSize, qrSize);
+          pdf.setFontSize(6);
+          pdf.setFont("helvetica", "normal");
+          pdf.setTextColor(21, 87, 204);
+          const label = language === "es" ? "Contactar" : "Contact";
+          pdf.text(label, qrX + qrSize / 2, qrY + qrSize + 3.5, { align: "center" });
+        }
+        // Draw photo below QR
+        if (photoDataUrl) {
+          pdf.addImage(photoDataUrl, 'PNG', rightX, photoY, photoSize, photoSize);
+        }
+
+        // Helper: justify a single line (distribute words across contentWidth)
+        const justifyLine = (line: string, x: number, y: number) => {
+          const words = line.trim().split(/\s+/);
+          if (words.length <= 1) { pdf.text(line, x, y); return; }
+          const totalWordW = words.reduce((s, w) => s + pdf.getTextWidth(w), 0);
+          const spacing = (contentWidth - totalWordW) / (words.length - 1);
+          let cx = x;
+          words.forEach(w => { pdf.text(w, cx, y); cx += pdf.getTextWidth(w) + spacing; });
+        };
+
+        const addText = (text: string, fontSize: number, isBold = false, color = [0, 0, 0], justify = false) => {
           if (!text) return;
           pdf.setFontSize(fontSize);
           pdf.setFont("helvetica", isBold ? "bold" : "normal");
@@ -308,8 +343,26 @@ export default function Resume() {
             yPos = margin;
             contentWidth = fullContentWidth;
           }
-          pdf.text(lines, margin, yPos);
-          yPos += lines.length * fontSize * 0.4 + 2;
+          if (justify) {
+            lines.forEach((line: string, i: number) => {
+              const isLast = i === lines.length - 1;
+              if (!isLast) justifyLine(line, margin, yPos);
+              else pdf.text(line, margin, yPos);
+              yPos += fontSize * 0.4 + 1.5;
+            });
+            yPos += 0.5;
+          } else {
+            pdf.text(lines, margin, yPos);
+            yPos += lines.length * fontSize * 0.4 + 2;
+          }
+        };
+
+        // Justified multi-paragraph text (splits on \n\n)
+        const addJustifiedParagraphs = (text: string, fontSize: number) => {
+          text.split('\n\n').filter(Boolean).forEach((para, pi, arr) => {
+            addText(para.replace(/\n/g, ' '), fontSize, false, [0, 0, 0], true);
+            if (pi < arr.length - 1) yPos += 1;
+          });
         };
 
         const addSection = (title: string) => {
@@ -323,40 +376,18 @@ export default function Resume() {
           contentWidth = fullContentWidth;
         };
 
-        // Right side: photo on right, QR to its right — side by side
-        const photoX = pageWidth - margin - qrSize - gap - photoSize;
-        const qrX = pageWidth - margin - qrSize;
-        const qrY = margin + (photoSize - qrSize) / 2; // vertically centered with photo
-
-        if (photoDataUrl) {
-          pdf.addImage(photoDataUrl, 'PNG', photoX, margin, photoSize, photoSize);
-        }
-        if (qrDataUrl) {
-          pdf.setFillColor(255, 255, 255);
-          pdf.setDrawColor(21, 87, 204);
-          pdf.setLineWidth(0.3);
-          pdf.roundedRect(qrX - 1, qrY - 1, qrSize + 2, qrSize + 2, 1, 1, 'FD');
-          pdf.addImage(qrDataUrl, 'PNG', qrX, qrY, qrSize, qrSize);
-          pdf.setFontSize(6);
-          pdf.setFont("helvetica", "normal");
-          pdf.setTextColor(21, 87, 204);
-          const label = language === "es" ? "Contactar" : "Contact";
-          pdf.text(label, qrX + qrSize / 2, qrY + qrSize + 3.5, { align: "center" });
-        }
-
-        // Header text — leave space for photo + QR column
+        // Header text — leave space for right column (QR + photo stacked)
         contentWidth = fullContentWidth - rightColWidth - 4;
 
-        // Header text (left side)
         addText(t.profileData.name, 22, true, [21, 87, 204]);
         addText(t.profileData.title, 13, false, [100, 100, 100]);
         yPos += 2;
         addText(`${t.profileData.location}`, 10, false, [80, 80, 80]);
         addText(`${t.profileData.email}  |  ${t.profileData.phone}`, 10, false, [80, 80, 80]);
 
-        // Restore full width after header
+        // Restore full width after header — clear past photo bottom
         contentWidth = fullContentWidth;
-        yPos = Math.max(yPos, margin + photoSize + 6);
+        yPos = Math.max(yPos, photoY + photoSize + 6);
 
         // Profile
         addSection(t.profile);
@@ -374,7 +405,7 @@ export default function Resume() {
           addText(`${exp.company}`, 12, true);
           addText(`${exp.role.replace(/\n/g, ' ')}`, 11, false, [21, 87, 204]);
           addText(`${exp.period}`, 10, false, [100, 100, 100]);
-          if (exp.description) addText(exp.description.replace(/\n\n/g, ' '), 10);
+          if (exp.description) addJustifiedParagraphs(exp.description, 10);
           yPos += 3;
         });
 

@@ -76,14 +76,22 @@ const translations = {
     experiences: [
       {
         id: 1,
+        company: "DAIKIN COLOMBIA SAS",
+        role: "Solution Sales Engineer",
+        period: "Abril 2026 - Actual",
+        description: "",
+        technologies: ["Ventas de Soluciones", "Estrategia Comercial", "HVAC", "Ingeniería de Ventas"]
+      },
+      {
+        id: 2,
         company: "GEA ANDINA SAS",
         role: "Senior Services Sales Engineer – Andean Cluster\n(México, Colombia, Perú, Panamá)",
-        period: "2022 - Actual",
+        period: "2022 - Abril 2026",
         description: "Lideré la estrategia comercial de servicios para cuentas industriales clave, integrando soluciones técnicas, contratos de servicio y proyectos de valor agregado, contribuyendo al crecimiento sostenible del negocio y al fortalecimiento de relaciones comerciales de largo plazo.\n\nGestioné y desarrollé portafolios estratégicos de clientes en industrias como energía, alimentos y procesos industriales, actuando como enlace entre clientes, equipos técnicos y liderazgo regional, con enfoque en rentabilidad, retención y expansión de oportunidades.\n\nImpulsé iniciativas de liderazgo comercial y mejora estratégica, participando activamente en la definición de planes de ventas, forecast, priorización de mercados y alineación de objetivos comerciales con la estrategia corporativa, demostrando capacidad para roles de dirección y toma de decisiones de alto nivel.",
         technologies: ["Ventas Consultivas", "Gestión de Cuentas", "Estrategia Comercial", "Oil & Gas", "Energía"]
       },
       {
-        id: 2,
+        id: 3,
         company: "HILTI LATINOAMERICA COLOMBIA",
         role: "Key Account Manager O&G, Energía e Industria",
         period: "2019 - 2022",
@@ -91,7 +99,7 @@ const translations = {
         technologies: ["Gestión de Cuentas Clave", "Oil & Gas", "Energía", "Negociación", "Cadena de Suministro"]
       },
       {
-        id: 3,
+        id: 4,
         company: "PFERD PANAMERICANA",
         role: "Representante de Ventas Industriales\n(Países Región Andina)",
         period: "2016 - 2018",
@@ -174,14 +182,22 @@ const translations = {
     experiences: [
       {
         id: 1,
+        company: "DAIKIN COLOMBIA SAS",
+        role: "Solution Sales Engineer",
+        period: "April 2026 - Present",
+        description: "",
+        technologies: ["Solution Sales", "Commercial Strategy", "HVAC", "Sales Engineering"]
+      },
+      {
+        id: 2,
         company: "GEA ANDINA SAS",
         role: "Senior Services Sales Engineer – Andean Cluster\n(Mexico, Colombia, Peru, Panama)",
-        period: "2022 - Present",
+        period: "2022 - April 2026",
         description: "Led the commercial services strategy for key industrial accounts, integrating technical solutions, service contracts, and value-added projects, contributing to sustainable business growth and strengthening long-term commercial relationships.\n\nManaged and developed strategic client portfolios in industries such as energy, food, and industrial processes, acting as a liaison between clients, technical teams, and regional leadership, with a focus on profitability, retention, and opportunity expansion.\n\nDrove commercial leadership initiatives and strategic improvement, actively participating in defining sales plans, forecasting, market prioritization, and aligning commercial objectives with corporate strategy, demonstrating capacity for management roles and high-level decision-making.",
         technologies: ["Consultative Sales", "Account Management", "Commercial Strategy", "Oil & Gas", "Energy"]
       },
       {
-        id: 2,
+        id: 3,
         company: "HILTI LATINOAMERICA COLOMBIA",
         role: "Key Account Manager O&G, Energy & Industry",
         period: "2019 - 2022",
@@ -189,7 +205,7 @@ const translations = {
         technologies: ["Key Account Management", "Oil & Gas", "Energy", "Negotiation", "Supply Chain"]
       },
       {
-        id: 3,
+        id: 4,
         company: "PFERD PANAMERICANA",
         role: "Industrial Sales Representative\n(Andean Region Countries)",
         period: "2016 - 2018",

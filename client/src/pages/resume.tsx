@@ -667,7 +667,7 @@ export default function Resume() {
       </div>
 
       {/* Content area */}
-      <div className="relative max-w-6xl mx-auto px-1 sm:px-3 md:px-6 py-4 md:pt-[420px] w-full box-border">
+      <div className="relative max-w-6xl mx-auto px-1 sm:px-3 md:px-6 py-4 md:pt-[315px] w-full box-border">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           {/* Mobile tabs */}
           <motion.div

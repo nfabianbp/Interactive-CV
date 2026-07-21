@@ -818,7 +818,11 @@ export default function Resume() {
                         {exp.period}
                       </Badge>
                     </div>
-                    <p className="text-[13px] sm:text-sm md:text-base text-muted-foreground mb-4 whitespace-pre-line text-justify">{exp.description}</p>
+                    <div className="text-[13px] sm:text-sm md:text-base text-muted-foreground mb-4 space-y-2">
+                      {exp.description.split('\n\n').filter(Boolean).map((para, i) => (
+                        <p key={i} className="text-justify">{para}</p>
+                      ))}
+                    </div>
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech, techIndex) => (
                         <Badge 

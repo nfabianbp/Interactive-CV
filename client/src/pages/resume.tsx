@@ -63,7 +63,7 @@ const translations = {
     industriesLabel: "Industrias de Experiencia",
     featuredProjects: "Proyectos Destacados",
     languages: "Idiomas",
-    englishLevel: "Inglés B2 - Intermedio",
+    englishLevel: "Inglés B1 - Intermedio",
     spanishLevel: "Español - Nativo",
     profileData: {
       name: "Ing. Néstor Fabián Bernal",
@@ -157,7 +157,7 @@ const translations = {
     educationLabel: "Education",
     certifications: "Certifications",
     languages: "Languages",
-    englishLevel: "English B2 - Intermediate",
+    englishLevel: "English B1 - Intermediate",
     spanishLevel: "Spanish - Native",
     softwareTools: "Software Tools",
     allSkills: "All",
@@ -1060,13 +1060,13 @@ export default function Resume() {
                       <div>
                         <div className="flex justify-between text-sm mb-1">
                           <span>Inglés</span>
-                          <span className="text-[#1557cc]">B2 - Intermedio</span>
+                          <span className="text-[#1557cc]">B1 - Intermedio</span>
                         </div>
                         <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
                           <motion.div
                             className="h-full skill-bar rounded-full"
                             initial={{ width: 0 }}
-                            animate={{ width: "70%" }}
+                            animate={{ width: "55%" }}
                             transition={{ duration: 0.8, delay: 0.6 }}
                           />
                         </div>

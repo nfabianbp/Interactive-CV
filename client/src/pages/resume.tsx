@@ -290,7 +290,9 @@ export default function Resume() {
         const pageHeight = pdf.internal.pageSize.getHeight();
         const margin = 20;
         const photoSize = 35;
-        const qrSize = 28;
+        const qrSize = 14;
+        const gap = 3;
+        const rightColWidth = photoSize + gap + qrSize + 4;
         const fullContentWidth = pageWidth - margin * 2;
         let contentWidth = fullContentWidth;
         let yPos = margin;
@@ -321,32 +323,31 @@ export default function Resume() {
           contentWidth = fullContentWidth;
         };
 
-        // Right side: photo + QR stacked vertically
-        const rightColWidth = photoSize + 4;
+        // Right side: photo on right, QR to its right — side by side
+        const photoX = pageWidth - margin - qrSize - gap - photoSize;
+        const qrX = pageWidth - margin - qrSize;
+        const qrY = margin + (photoSize - qrSize) / 2; // vertically centered with photo
+
         if (photoDataUrl) {
-          pdf.addImage(photoDataUrl, 'PNG', pageWidth - margin - photoSize, margin, photoSize, photoSize);
+          pdf.addImage(photoDataUrl, 'PNG', photoX, margin, photoSize, photoSize);
         }
         if (qrDataUrl) {
-          const qrX = pageWidth - margin - qrSize;
-          const qrY = margin + (photoDataUrl ? photoSize + 3 : 0);
-          // White background box
           pdf.setFillColor(255, 255, 255);
           pdf.setDrawColor(21, 87, 204);
           pdf.setLineWidth(0.3);
           pdf.roundedRect(qrX - 1, qrY - 1, qrSize + 2, qrSize + 2, 1, 1, 'FD');
           pdf.addImage(qrDataUrl, 'PNG', qrX, qrY, qrSize, qrSize);
-          // "Contactar / Contact" label below QR
-          pdf.setFontSize(7);
+          pdf.setFontSize(6);
           pdf.setFont("helvetica", "normal");
           pdf.setTextColor(21, 87, 204);
           const label = language === "es" ? "Contactar" : "Contact";
-          pdf.text(label, qrX + qrSize / 2, qrY + qrSize + 4, { align: "center" });
+          pdf.text(label, qrX + qrSize / 2, qrY + qrSize + 3.5, { align: "center" });
         }
 
-        // Header text — leave space for photo+QR column
-        contentWidth = fullContentWidth - rightColWidth - 6;
+        // Header text — leave space for photo + QR column
+        contentWidth = fullContentWidth - rightColWidth - 4;
 
-        // Header text (left side, respecting photo+QR space)
+        // Header text (left side)
         addText(t.profileData.name, 22, true, [21, 87, 204]);
         addText(t.profileData.title, 13, false, [100, 100, 100]);
         yPos += 2;
@@ -355,8 +356,7 @@ export default function Resume() {
 
         // Restore full width after header
         contentWidth = fullContentWidth;
-        const rightColHeight = photoSize + (qrDataUrl ? qrSize + 8 : 0);
-        yPos = Math.max(yPos, margin + rightColHeight + 4);
+        yPos = Math.max(yPos, margin + photoSize + 6);
 
         // Profile
         addSection(t.profile);

@@ -72,7 +72,7 @@ const translations = {
       location: "Bogotá D.C, Colombia",
       email: "nfabianbp@hotmail.com",
       phone: "+57 316 049 3179",
-      bio: "Ingeniero Mecánico especialista en Gestión de Proyectos y más de 13 años de experiencia en ventas consultivas, liderazgo comercial y desarrollo estratégico de negocios para soluciones técnicas, tecnología y proyectos industriales. Amplia trayectoria en las industrias petroquímica, Oil & Gas, energía, metalmecánica y alimentos, gestionando portafolios comerciales y proyectos de alto impacto.\n\nProfesional con sólidas habilidades de liderazgo, capaz de dirigir equipos comerciales y técnicos multidisciplinarios, definir e implementar estrategias comerciales y empresariales, y liderar procesos de preventa, negociación y cierre de contratos complejos. Experiencia en gestión de cuentas clave, expansión de mercados, análisis financiero-comercial y alineación de objetivos comerciales con la estrategia corporativa.\n\nOrientado a resultados, rentabilidad y crecimiento sostenible, con fuerte enfoque en la toma de decisiones estratégicas, generación de valor para el cliente y construcción de relaciones comerciales de largo plazo en entornos industriales altamente competitivos."
+      bio: "Ingeniero Mecánico con experticia en Gestión de Proyectos y más de 13 años de experiencia en ventas consultivas, liderazgo comercial y desarrollo estratégico de negocios para soluciones técnicas, tecnología y proyectos industriales. Amplia trayectoria en las industrias petroquímica, Oil & Gas, energía, metalmecánica y alimentos, gestionando portafolios comerciales y proyectos de alto impacto.\n\nProfesional con sólidas habilidades de liderazgo, capaz de dirigir equipos comerciales y técnicos multidisciplinarios, definir e implementar estrategias comerciales y empresariales, y liderar procesos de preventa, negociación y cierre de contratos complejos. Experiencia en gestión de cuentas clave, expansión de mercados, análisis financiero-comercial y alineación de objetivos comerciales con la estrategia corporativa.\n\nOrientado a resultados, rentabilidad y crecimiento sostenible, con fuerte enfoque en la toma de decisiones estratégicas, generación de valor para el cliente y construcción de relaciones comerciales de largo plazo en entornos industriales altamente competitivos."
     },
     experiences: [
       {
@@ -86,15 +86,15 @@ const translations = {
       {
         id: 2,
         company: "GEA ANDINA SAS",
-        role: "Senior Services Sales Engineer – Andean Cluster\n(México, Colombia, Perú, Panamá)",
+        role: "Sales Engineer – Services & Projects – Andean Cluster\n(México, Colombia, Perú, Panamá)",
         period: "2022 - Abril 2026",
-        description: "Lideré la estrategia comercial de servicios para cuentas industriales clave, integrando soluciones técnicas, contratos de servicio y proyectos de valor agregado, contribuyendo al crecimiento sostenible del negocio y al fortalecimiento de relaciones comerciales de largo plazo.\n\nGestioné y desarrollé portafolios estratégicos de clientes en industrias como energía, alimentos y procesos industriales, actuando como enlace entre clientes, equipos técnicos y liderazgo regional, con enfoque en rentabilidad, retención y expansión de oportunidades.\n\nImpulsé iniciativas de liderazgo comercial y mejora estratégica, participando activamente en la definición de planes de ventas, forecast, priorización de mercados y alineación de objetivos comerciales con la estrategia corporativa, demostrando capacidad para roles de dirección y toma de decisiones de alto nivel.",
+        description: "Lideré la estrategia comercial de servicios para cuentas industriales clave, integrando soluciones técnicas, contratos de servicio y proyectos de valor agregado como modernizaciones, retrofits y upgrades de equipos industriales, contribuyendo al crecimiento sostenible del negocio y al fortalecimiento de relaciones comerciales de largo plazo.\n\nGestioné y desarrollé portafolios estratégicos de clientes en industrias como energía, alimentos y procesos industriales, actuando como enlace entre clientes, equipos técnicos y liderazgo regional, con enfoque en rentabilidad, retención y expansión de oportunidades.\n\nImpulsé iniciativas de liderazgo comercial y mejora estratégica, participando activamente en la definición de planes de ventas, forecast, priorización de mercados y alineación de objetivos comerciales con la estrategia corporativa, demostrando capacidad para roles de dirección y toma de decisiones de alto nivel.",
         technologies: ["Ventas Consultivas", "Gestión de Cuentas", "Estrategia Comercial", "Oil & Gas", "Energía"]
       },
       {
         id: 3,
         company: "HILTI LATINOAMERICA COLOMBIA",
-        role: "Key Account Manager O&G, Energía e Industria",
+        role: "Account Manager O&G, Energía e Industria",
         period: "2019 - 2022",
         description: "Desarrollé y ejecuté estrategias de crecimiento de mercado para cuentas clave en las industrias de construcción, Oil & Gas y energía, posicionando soluciones técnicas de alto valor y fortaleciendo la presencia de la marca en proyectos estratégicos.\n\nLideré la gestión integral de cuentas clave, incluyendo planificación comercial, negociación de contratos marco y desarrollo de relaciones a nivel gerencial, coordinando equipos técnicos y comerciales para maximizar valor y fidelización.\n\nGestioné la coordinación con canales de distribución y cadena de suministro, alineando demanda, disponibilidad de producto y niveles de servicio para asegurar continuidad operativa, cumplimiento de acuerdos comerciales y satisfacción del cliente.",
         technologies: ["Gestión de Cuentas Clave", "Oil & Gas", "Energía", "Negociación", "Cadena de Suministro"]
@@ -135,7 +135,7 @@ const translations = {
       }
     ],
     educationList: [
-      { degree: "Esp. Gestión de Proyectos", school: "BUAP - Universidad Autónoma de Puebla, MX", year: "2014" },
+      { degree: "Dipl. Gestión de Proyectos", school: "BUAP - Universidad Autónoma de Puebla, MX", year: "2014" },
       { degree: "Prof. Ingeniería Mecánica", school: "Universidad Los Libertadores, CO", year: "2013" },
       { degree: "Tecn. Prof. Mecánica Industrial", school: "SENA - Escuela Técnica", year: "2006" }
     ],
@@ -178,7 +178,7 @@ const translations = {
       location: "Bogotá D.C, Colombia",
       email: "nfabianbp@hotmail.com",
       phone: "+57 316 049 3179",
-      bio: "Mechanical Engineer specialized in Project Management with over 13 years of experience in consultative sales, commercial leadership, and strategic business development for technical solutions, technology, and industrial projects. Extensive background in the petrochemical, Oil & Gas, energy, metalworking, and food industries, managing commercial portfolios and high-impact projects.\n\nProfessional with strong leadership skills, capable of leading multidisciplinary commercial and technical teams, defining and implementing commercial and business strategies, and leading presales, negotiation, and complex contract closing processes. Experience in key account management, market expansion, financial-commercial analysis, and aligning commercial objectives with corporate strategy.\n\nResults-oriented, focused on profitability and sustainable growth, with a strong emphasis on strategic decision-making, customer value generation, and building long-term commercial relationships in highly competitive industrial environments."
+      bio: "Mechanical Engineer with expertise in Project Management with over 13 years of experience in consultative sales, commercial leadership, and strategic business development for technical solutions, technology, and industrial projects. Extensive background in the petrochemical, Oil & Gas, energy, metalworking, and food industries, managing commercial portfolios and high-impact projects.\n\nProfessional with strong leadership skills, capable of leading multidisciplinary commercial and technical teams, defining and implementing commercial and business strategies, and leading presales, negotiation, and complex contract closing processes. Experience in key account management, market expansion, financial-commercial analysis, and aligning commercial objectives with corporate strategy.\n\nResults-oriented, focused on profitability and sustainable growth, with a strong emphasis on strategic decision-making, customer value generation, and building long-term commercial relationships in highly competitive industrial environments."
     },
     experiences: [
       {
@@ -192,15 +192,15 @@ const translations = {
       {
         id: 2,
         company: "GEA ANDINA SAS",
-        role: "Senior Services Sales Engineer – Andean Cluster\n(Mexico, Colombia, Peru, Panama)",
+        role: "Sales Engineer – Services & Projects – Andean Cluster\n(Mexico, Colombia, Peru, Panama)",
         period: "2022 - April 2026",
-        description: "Led the commercial services strategy for key industrial accounts, integrating technical solutions, service contracts, and value-added projects, contributing to sustainable business growth and strengthening long-term commercial relationships.\n\nManaged and developed strategic client portfolios in industries such as energy, food, and industrial processes, acting as a liaison between clients, technical teams, and regional leadership, with a focus on profitability, retention, and opportunity expansion.\n\nDrove commercial leadership initiatives and strategic improvement, actively participating in defining sales plans, forecasting, market prioritization, and aligning commercial objectives with corporate strategy, demonstrating capacity for management roles and high-level decision-making.",
+        description: "Led the commercial services strategy for key industrial accounts, integrating technical solutions, service contracts, and value-added projects such as modernizations, retrofits, and industrial equipment upgrades, contributing to sustainable business growth and strengthening long-term commercial relationships.\n\nManaged and developed strategic client portfolios in industries such as energy, food, and industrial processes, acting as a liaison between clients, technical teams, and regional leadership, with a focus on profitability, retention, and opportunity expansion.\n\nDrove commercial leadership initiatives and strategic improvement, actively participating in defining sales plans, forecasting, market prioritization, and aligning commercial objectives with corporate strategy, demonstrating capacity for management roles and high-level decision-making.",
         technologies: ["Consultative Sales", "Account Management", "Commercial Strategy", "Oil & Gas", "Energy"]
       },
       {
         id: 3,
         company: "HILTI LATINOAMERICA COLOMBIA",
-        role: "Key Account Manager O&G, Energy & Industry",
+        role: "Account Manager O&G, Energy & Industry",
         period: "2019 - 2022",
         description: "Developed and executed market growth strategies for key accounts in the construction, Oil & Gas, and energy industries, positioning high-value technical solutions and strengthening brand presence in strategic projects.\n\nLed comprehensive key account management, including commercial planning, framework contract negotiation, and relationship development at management level, coordinating technical and commercial teams to maximize value and customer loyalty.\n\nManaged coordination with distribution channels and supply chain, aligning demand, product availability, and service levels to ensure operational continuity, compliance with commercial agreements, and customer satisfaction.",
         technologies: ["Key Account Management", "Oil & Gas", "Energy", "Negotiation", "Supply Chain"]
@@ -241,7 +241,7 @@ const translations = {
       }
     ],
     educationList: [
-      { degree: "Spec. Project Management", school: "BUAP - Autonomous University of Puebla, MX", year: "2014" },
+      { degree: "Dipl. Project Management", school: "BUAP - Autonomous University of Puebla, MX", year: "2014" },
       { degree: "B.Eng. Mechanical Engineering", school: "Universidad Los Libertadores, CO", year: "2013" },
       { degree: "Tech. Industrial Mechanics", school: "SENA - Technical School", year: "2006" }
     ],
@@ -255,6 +255,7 @@ const translations = {
 
 const skills = [
   { name: "CRM Cloud", level: 90, category: "software" },
+  { name: "CRM Salesforce", level: 80, category: "software" },
   { name: "SAP Business One", level: 85, category: "software" },
   { name: "Ms Office", level: 95, category: "software" },
   { name: "Power BI", level: 80, category: "software" },

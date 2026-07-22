@@ -367,7 +367,18 @@ export default function Resume() {
           });
         };
 
+        // Minimum space (mm) that must remain on the page before drawing a section title
+        const SECTION_MIN_SPACE = 35;
+        // Minimum space before an experience entry block (company + role + period + a few lines)
+        const ENTRY_MIN_SPACE = 28;
+
         const addSection = (title: string) => {
+          // If not enough room for the title + first content line, start a new page
+          if (yPos + SECTION_MIN_SPACE > pageHeight - margin) {
+            pdf.addPage();
+            yPos = margin;
+            contentWidth = fullContentWidth;
+          }
           yPos += 4;
           pdf.setDrawColor(21, 87, 204);
           pdf.setLineWidth(0.5);
@@ -397,9 +408,9 @@ export default function Resume() {
 
         // Experience
         addSection(t.experience);
-        t.experiences.forEach((exp, index) => {
-          // Force new page before HILTI (index 2)
-          if (index === 2) {
+        t.experiences.forEach((exp) => {
+          // If not enough space for the entry header + a couple of content lines, go to next page
+          if (yPos + ENTRY_MIN_SPACE > pageHeight - margin) {
             pdf.addPage();
             yPos = margin;
             contentWidth = fullContentWidth;
